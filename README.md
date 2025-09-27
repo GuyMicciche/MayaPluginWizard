@@ -2,7 +2,9 @@
 
 A Visual Studio extension that provides project templates and wizards for creating Autodesk Maya C++ plugins. This extension streamlines the process of setting up Maya plugin development environments with proper project structure and dependencies.
 
-![Maya Plugin Wizard](https://github.com/user-attachments/assets/350b030a-1f7a-4864-ae02-0f91bad63cfa)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/350b030a-1f7a-4864-ae02-0f91bad63cfa?raw=true" alt="Maya Plugin Wizard"/>
+</p>
 
 ## Features
 
