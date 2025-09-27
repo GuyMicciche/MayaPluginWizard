@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="MayaPluginWizard.23923bbe-e3ed-4581-9d88-ea999603ac1f" Version="1.0" Language="en-US" Publisher="Guy Micciche" />
+        <DisplayName>MayaPluginWizard</DisplayName>
+        <Description xml:space="preserve">Maya Plugin Wizard 2026 for Visual Studio 2019/2022</Description>
+        <Icon>MayaPluginWizard.ico</Icon>
+        <Tags>Maya</Tags>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0,18.0)">
+            <ProductArchitecture>x86</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0,18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0,18.0)">
+            <ProductArchitecture>arm64</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[15.0,18.0)">
+            <ProductArchitecture>x86</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[15.0,18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[15.0,18.0)">
+            <ProductArchitecture>arm64</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[15.0,18.0)">
+            <ProductArchitecture>x86</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[15.0,18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[15.0,18.0)">
+            <ProductArchitecture>arm64</ProductArchitecture>
+        </InstallationTarget>
+    </Installation>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,4.8)" />
+    </Dependencies>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" AssemblyName="|%CurrentProject%;AssemblyName|" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\Maya\ComplexMELCmdProject.zip" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\Maya\DGNProject.zip" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\Maya\EmptyProject.zip" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\Maya\MELCmdProject.zip" />
+    </Assets>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,18.0)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+</PackageManifest>
