@@ -1,11 +1,9 @@
-# Maya Plugin Wizard 2026 for Visual Studio
+# Maya Plugin Wizard for Visual Studio 2022/2019/2017
 
 A Visual Studio extension that provides project templates and wizards for creating Autodesk Maya C++ plugins. This extension streamlines the process of setting up Maya plugin development environments with proper project structure and dependencies.
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/350b030a-1f7a-4864-ae02-0f91bad63cfa?raw=true" alt="Maya Plugin Wizard"/>
-</p>
-
+[![Maya Plugin Wizard](https://github.com/user-attachments/assets/2a0a8511-571b-41ea-9d8a-f9937188fcbe)](#---)
+ 
 ## Features
 
 - **Project Templates**: Pre-configured project templates for Maya C++ plugin development
@@ -13,10 +11,12 @@ A Visual Studio extension that provides project templates and wizards for creati
 - **Maya Integration**: Automatically configures Maya SDK references and build settings
 - **Visual Studio Support**: Compatible with Visual Studio 2019/2022
 
+
+
 ## Prerequisites
 
-- Visual Studio 2019 or later
-- Autodesk Maya (2019 or later)
+- Visual Studio 2017 or later
+- Autodesk Maya (2017 or later)
 - Maya DevKit installed
 - .NET Framework 4.7.2 or later
 
@@ -65,7 +65,7 @@ This extension uses the following NuGet packages:
 ### Building from Source
 
 1. Clone this repository
-2. Open the solution in Visual Studio 2019/2022
+2. Open the solution in Visual Studio 2022/2019/2017
 3. Restore NuGet packages
 4. Build the solution (F6)
 5. Press F5 to run in experimental instance
@@ -104,6 +104,7 @@ The generated projects include:
 5. Open a Pull Request
 
 ## Maya Versions Supported
+<img width="64" height="64" alt="MayaIcon" src="https://github.com/user-attachments/assets/dce4f103-adb1-4c5e-b6a6-60c6f7ddd7cf" />
 
 - Maya 2019
 - Maya 2020
