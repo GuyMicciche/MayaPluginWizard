@@ -40,14 +40,16 @@ A Visual Studio extension that provides project templates and wizards for creati
 
 The wizard creates a properly structured Maya plugin project with:
 
+```
 YourPluginName/
 ├── Source Files/
-│ ├── pluginMain.cpp
-│ └── YourPlugin.cpp
+│   ├── pluginMain.cpp
+│   └── YourPlugin.cpp
 ├── Header Files/
-│ └── YourPlugin.h
+│   └── YourPlugin.h
 ├── Resource Files/
 └── packages.config
+```
 
 ## Dependencies
 
