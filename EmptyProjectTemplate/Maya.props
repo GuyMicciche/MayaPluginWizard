@@ -10,6 +10,8 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalIncludeDirectories>$(MAYA_LOCATION)\include;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>/Zc:__cplusplus /FS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>foundation.lib;openmaya.lib;openmayaui.lib;openmayaanim.lib;openmayafx.lib;openmayarender.lib;image.lib;libmocap.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>

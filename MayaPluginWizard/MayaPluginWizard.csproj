@@ -50,6 +50,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CopyVsixExtensionFiles>False</CopyVsixExtensionFiles>
+    <CopyVsixExtensionLocation>
+    </CopyVsixExtensionLocation>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,6 +100,52 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <PropertyGroup>
+    <PostBuildEvent>
+	</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup> 
+  <!-- Guy's custom auto-zip project templates before build 
+       Add an additional ZipDirectory command for every template project you want to add,
+	   then add the zip file to source.extension.vsixmanifest > Assets
+   -->
+  <Target Name="ZipProjectTemplates" BeforeTargets="BeforeBuild">
+    <PropertyGroup>
+      <TemplatesDir>$(MSBuildProjectDirectory)\..\</TemplatesDir>
+      <OutputTemplatesDir>$(MSBuildProjectDirectory)\ProjectTemplates\Maya\</OutputTemplatesDir>
+    </PropertyGroup>
+    <ZipDirectory SourceDirectory="$(TemplatesDir)DGNProjectTemplate" 
+                  DestinationFile="$(OutputTemplatesDir)DGNProject.zip" 
+                  Overwrite="true" />
+    <ZipDirectory SourceDirectory="$(TemplatesDir)MELCmdProjectTemplate" 
+                  DestinationFile="$(OutputTemplatesDir)MELCmdProject.zip" 
+                  Overwrite="true" />
+    <ZipDirectory SourceDirectory="$(TemplatesDir)ComplexMELCmdProjectTemplate" 
+                  DestinationFile="$(OutputTemplatesDir)ComplexMELCmdProject.zip" 
+                  Overwrite="true" />
+    <ZipDirectory SourceDirectory="$(TemplatesDir)EmptyProjectTemplate" 
+                  DestinationFile="$(OutputTemplatesDir)EmptyProject.zip" 
+                  Overwrite="true" />
+	<Message Text="Project templates zipped successfully" Importance="High" />
+  </Target>
+  <!-- Guy's custom way to export the .vsix to a folder.
+       GetVsixVersion is also used in source.extensions.vsixmanifest
+   -->
+  <Target Name="GetVsixVersion" Outputs="$(VsixVersion)" AfterTargets="CreateVsixContainer">
+    <PropertyGroup>
+      <VsixVersion>2026.0.0</VsixVersion>
+    </PropertyGroup>
+	<Message Text="VSIX Version: $(VsixVersion)" Importance="High" />
+	<MakeDir Directories="$(SolutionDir)Release_v$(VsixVersion)" />
+	<ItemGroup>
+      <VsixFiles Include="$(TargetDir)*.vsix" />
+	</ItemGroup>
+	<Message Text="Copying VSIX files: @(VsixFiles)" Importance="High" />
+	<Copy SourceFiles="@(VsixFiles)" DestinationFolder="$(SolutionDir)Release_v$(VsixVersion)" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

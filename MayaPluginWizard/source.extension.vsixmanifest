@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="MayaPluginWizard.23923bbe-e3ed-4581-9d88-ea999603ac1f" Version="1.0" Language="en-US" Publisher="Guy Micciche" />
+        <Identity Id="MayaPluginWizard.23923bbe-e3ed-4581-9d88-ea999603ac1f" Version="|%CurrentProject%;GetVsixVersion|" Language="en-US" Publisher="Guy Micciche" />
         <DisplayName>MayaPluginWizard</DisplayName>
-        <Description xml:space="preserve">Maya Plugin Wizard 2026 for Visual Studio 2019/2022</Description>
+        <Description xml:space="preserve">Maya Plugin Wizard 2026 for Visual Studio 2022/2019/2017</Description>
         <Icon>MayaPluginWizard.ico</Icon>
         <Tags>Maya</Tags>
     </Metadata>
