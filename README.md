@@ -16,9 +16,10 @@ A Visual Studio extension that provides project templates and wizards for creati
 ## Prerequisites
 
 - Visual Studio 2017 or later
-- Autodesk Maya (2019 or later)
-- Maya DevKit installed
+- Autodesk Maya 2019 or later
+- Maya DevKit installed (for more control)
 - .NET Framework 4.7.2 or later
+- Python 3.9 or later (to run `unload_plugin.py` and `load_plugin.py` when you build)
 
 ## Installation
 
@@ -86,11 +87,27 @@ This extension uses the following NuGet packages:
 
 Once you've created a project using this wizard, you can:
 
-1. Implement your plugin functionality in the generated source files
-2. Build the project to create a `.mll` file
-3. Copy the `.mll` file to `C:\Users\%USERNAME%\Documents\maya\2025\plug-ins` folder
-4. Load the plugin in Maya using the Plug-in Manager
-5. Test your plugin functionality
+1. Setup System variables System Properties > Environment Variables... > System variables
+   - MAYA_LOCATION
+   - MAYA_PLUG_IN_PATH
+ <img width="924" height="415" alt="image" src="https://github.com/user-attachments/assets/e87ef459-f53c-494e-bdb7-d3b8b6bc0ca1" />
+
+2. Create or modify `userSetup.py` to include:
+```python
+# userSetup.py
+import maya.cmds as cmds
+
+cmds.commandPort(name=":20200", sourceType="mel")
+cmds.commandPort(name=":20201", sourceType="python")
+```
+3. Implement your plugin functionality in the generated source files
+4. Add Qt libs to **Project > Properties > Linker > Input > Additional Dependencies** if you are using Qt
+5. Build the project (Ctrl+B) to create a `.mll` file
+   - If you have Maya open, `unload_plugin.py` and `load_plugin.py` should create a new file, unload the plugin, and the reload it
+   - Modify `unload_plugin.py` if you don't want to create a new file
+6. The `.mll` file should get copied to `MAYA_PLUG_IN_PATH` if you set it up correctly. Otherwise, manually copy the `.mll` file to `%USERPROFILE%\Documents\maya\2025\plug-ins` folder
+7. Load the plugin in Maya using the Plug-in Manager
+8. Test your plugin functionality
 
 ### Maya API Integration
 
