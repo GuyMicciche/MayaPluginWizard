@@ -17,6 +17,15 @@
       <AdditionalDependencies>foundation.lib;openmaya.lib;openmayaui.lib;openmayanim.lib;openmayafx.lib;openmayarender.lib;image.lib;libmocap.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(MAYA_LOCATION)\lib</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>python $(ProjectDir)unload_plugin.py</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+        copy $(TargetPath) "$(MAYA_PLUG_IN_PATH)\$(TargetName)$(TargetExt)" /b /y
+        python $(ProjectDir)load_plugin.py
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup />
 </Project>
