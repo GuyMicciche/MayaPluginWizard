@@ -161,7 +161,7 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
 ## Building Qt (Just for fun!)
 1. Download [Strawberry Perl](https://strawberryperl.com/)
 2. Download [Git Bash](https://gitforwindows.org/)
-3. Download [Ninja](https://ninja-build.org/) and add it to your PATH environment variable
+3. Download [Ninja](https://ninja-build.org/), bison, flex, gperf and add it to your PATH environment variable
 4. Open `Git Bash`, cd inside any folder (ex. cd "%USERPROFILE%\Desktop\Qt"), and execute these commands to clone and initialize:
    ```batch
    # Initial cloning for Qt6 for Maya 2026/2025"
