@@ -177,7 +177,7 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    ```bash
    # Maya 2026/2025
    # Minimal common subset init (short download)
-   init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtdeclarative
+   perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtdeclarative
 
    # Maya 2024/2023/2022
    # Minimal common subset init (short download)
