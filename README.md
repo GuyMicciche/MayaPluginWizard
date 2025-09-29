@@ -223,7 +223,7 @@ REM - Python 3.11.x (Maya 2025's Python version)
 REM ========================================
 
 REM Step 1: Set up Visual Studio environment
-"C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
+"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
 
 REM Step 2: Clone Qt 6.5.3 source
 git clone https://code.qt.io/qt/qt5.git qt6
@@ -261,7 +261,7 @@ REM - Python 3.10.8 (Maya 2024's Python version)
 REM ========================================
 
 REM Step 1: Set up Visual Studio environment
-"C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
+"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
 
 REM Step 2: Clone Qt 5.15.2 source
 git clone https://code.qt.io/qt/qt5.git qt5
