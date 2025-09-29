@@ -164,7 +164,7 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
 3. Download [Ninja](https://github.com/ninja-build/ninja/releases/download/v1.13.1/ninja-win.zip), add `.exe` to PATH
 4. Download [GPerf](https://sourceforge.net/projects/gnuwin32/files/gperf/3.0.1/gperf-3.0.1-bin.zip/download?use_mirror=psychz&download), add `.exe` to PATH
 5. Download [Bison](https://sourceforge.net/projects/gnuwin32/files/bison/2.4.1/bison-2.4.1-bin.zip/download?use_mirror=gigenet), add `.exe` to PATH
-6. [Download [Flex](https://sourceforge.net/projects/gnuwin32/files/flex/2.5.4a-1/flex-2.5.4a-1-bin.zip/download?use_mirror=pilotfiber&download), add `.exe` to PATHuse_mirror=pilotfiber&download), add `.exe` to PATH
+6. Download [Flex](https://sourceforge.net/projects/gnuwin32/files/flex/2.5.4a-1/flex-2.5.4a-1-bin.zip/download?use_mirror=pilotfiber&download), add `.exe` to PATH
 
 ## Qt 6.5.3 build for Maya 2026/2025
 ```batch
