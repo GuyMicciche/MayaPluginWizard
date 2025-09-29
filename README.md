@@ -301,7 +301,7 @@ REM ========================================
 
 ---
 
-# How to manually setup a Visual Studi environment for Maya C++ API and Qt
+# How to manually setup a Visual Studio environment for Maya C++ API and Qt
 
 ## Visual Studio Suggestion
 
