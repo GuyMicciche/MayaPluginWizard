@@ -334,3 +334,5 @@ NOTE: **Qt Visual Studio Tools** will do all of the following by default if you 
 - [Maya API Documentation](https://help.autodesk.com/view/MAYADEV/2026/ENU/?guid=MAYA_API_REF_cpp_ref_index_html)
 - [Visual Studio Extensibility Documentation](https://docs.microsoft.com/en-us/visualstudio/extensibility/)
 - [VSIX extension schema 2.0 reference](https://learn.microsoft.com/en-us/visualstudio/extensibility/vsix-extension-schema-2-0-reference?view=vs-2022)
+- [Building Qt 6 from Git](https://wiki.qt.io/Building_Qt_6_from_Git)
+- [Building Qt 5 from Git](https://wiki.qt.io/Building_Qt_5_from_Git)
