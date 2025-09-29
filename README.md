@@ -210,6 +210,56 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    ```
 7. Qt will be available in `C:\Qt\5.15.2-maya`
 
+## Qt 6.5.3 Module Mapping (Maya 2026/2025)
+
+| Module | Provides Include Directories |
+|--------|------------------------------|
+| **qtbase** | QtCore, QtGui, QtWidgets, QtNetwork, QtSql, QtTest, QtConcurrent, QtOpenGL, QtOpenGLWidgets, QtPrintSupport, QtXml, QtDBus, QtDeviceDiscoverySupport, QtFbSupport, QtFreetype, QtHarfbuzz, QtJpeg, QtPng, QtZlib |
+| **qtdeclarative** | QtQml, QtQmlCore, QtQmlModels, QtQmlWorkerScript, QtQmlLocalStorage, QtQmlXmlListModel, QtQmlIntegration, QtQmlCompiler, QtQmlTypeRegistrar, QtQmlDom, QtQmlDebug, QtQuick, QtQuickWidgets, QtQuickTest, QtQuickControls2, QtQuickControls2Impl, QtQuickTemplates2, QtQuickLayouts, QtQuickParticles, QtQuickShapes, QtQuickEffects, QtQuickDialogs2, QtQuickDialogs2QuickImpl, QtQuickDialogs2Utils, QtQuickTestUtils, QtQuickControlsTestUtils, QtPacketProtocol, QtLabsAnimation, QtLabsFolderListModel, QtLabsQmlModels, QtLabsSettings, QtLabsSharedImage, QtLabsWavefrontMesh, QtExampleIcons |
+| **qtmultimedia** | QtMultimedia, QtMultimediaWidgets, QtMultimediaQuick, QtSpatialAudio |
+| **qttools** | QtDesigner, QtDesignerComponents, QtHelp, QtUiTools, QtUiPlugin, QtTools |
+| **qtpositioning** | QtPositioning, QtPositioningQuick |
+| **qtserialport** | QtSerialPort |
+| **qtserialbus** | QtSerialBus |
+| **qtsensors** | QtSensors, QtSensorsQuick |
+| **qtwebsockets** | QtWebSockets |
+| **qtwebchannel** | QtWebChannel |
+| **qtwebengine** | QtWebEngineCore, QtWebEngineWidgets, QtWebEngineQuick, QtPdf, QtPdfQuick, QtPdfWidgets, QtWebView, QtWebViewQuick |
+| **qtremoteobjects** | QtRemoteObjects, QtRemoteObjectsQml, QtRepParser |
+| **qtscxml** | QtScxml, QtScxmlQml, QtStateMachine, QtStateMachineQml |
+| **qtspeech** | QtTextToSpeech |
+| **qt3d** | Qt3DCore, Qt3DRender, Qt3DInput, Qt3DLogic, Qt3DAnimation, Qt3DExtras, Qt3DQuick, Qt3DQuickAnimation, Qt3DQuickExtras, Qt3DQuickInput, Qt3DQuickRender, Qt3DQuickScene2D |
+| **qtshadertools** | QtShaderTools |
+| **qtsvg** | QtSvg, QtSvgWidgets |
+| **qt5compat** | QtCore5Compat |
+
+## Qt 5.15.2 Module Mapping (Maya 2024/2023/2022)
+
+| Module | Provides Include Directories |
+|--------|------------------------------|
+| **qtbase** | QtCore, QtGui, QtWidgets, QtNetwork, QtSql, QtTest, QtConcurrent, QtOpenGL, QtOpenGLExtensions, QtPrintSupport, QtXml, QtDBus, QtPlatformHeaders, QtAccessibilitySupport, QtThemeSupport, QtFontDatabaseSupport, QtDeviceDiscoverySupport, QtEdidSupport, QtEventDispatcherSupport, QtFbSupport, QtPlatformCompositorSupport, QtWindowsUIAutomationSupport, QtWinExtras, QtZlib |
+| **qtsvg** | QtSvg |
+| **qtmultimedia** | QtMultimedia, QtMultimediaWidgets, QtMultimediaQuick |
+| **qttools** | QtDesigner, QtDesignerComponents, QtHelp, QtUiTools, QtUiPlugin |
+| **qtserialport** | QtSerialPort |
+| **qtserialbus** | QtSerialBus |
+| **qtsensors** | QtSensors |
+| **qtwebsockets** | QtWebSockets |
+| **qtwebchannel** | QtWebChannel |
+| **qtwebengine** | QtWebEngine, QtWebEngineCore, QtWebEngineWidgets, QtPdf, QtPdfWidgets |
+| **qtxmlpatterns** | QtXmlPatterns |
+| **qtnetworkauth** | (OAuth support) |
+| **qtremoteobjects** | QtRemoteObjects, QtRepParser |
+| **qtscxml** | QtScxml |
+| **qtspeech** | QtTextToSpeech |
+| **qtactiveqt** | ActiveQt (Windows only) |
+| **qt3d** | Qt3DCore, Qt3DRender, Qt3DInput, Qt3DLogic, Qt3DAnimation, Qt3DExtras, Qt3DQuick, Qt3DQuickAnimation, Qt3DQuickExtras, Qt3DQuickInput, Qt3DQuickRender, Qt3DQuickScene2D |
+| **qtgamepad** | QtGamepad |
+| **qtlocation** | QtLocation, QtPositioning, QtPositioningQuick |
+| **qtdeclarative** | QtQml, QtQmlModels, QtQmlWorkerScript, QtQuick, QtQuickWidgets, QtQuickTest, QtQuickParticles, QtQuickShapes, QtPacketProtocol, QtQmlDebug |
+| **qtquickcontrols2** | QtQuickControls2, QtQuickTemplates2 |
+| **qtwebview** | QtWebView |
+
 ---
 
 # How to manually setup a Visual Studi environment for Maya C++ API and Qt
