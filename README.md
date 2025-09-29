@@ -163,10 +163,15 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
 2. Download [Git Bash](https://gitforwindows.org/)
 3. Open `Git Bash`, cd inside any folder (ex. cd "%USERPROFILE%\Desktop\Qt"), and execute these commands to clone and initialize:
    ```bash
-   # Initial cloning"
+   # Initial cloning for Qt6 for Maya 2026/2025"
+   git clone git://code.qt.io/qt/qt5.git qt6
+   cd qt6
+   git checkout v6.5.3
+
+   # Initial cloning for Qt5 for Maya 2024/2023/2022"
    git clone https://code.qt.io/qt/qt5.git
    cd qt5
-   git checkout v5.15.2
+   git checkout v5.15.2  
    ```
    ```bash
    # Minimal common subset init (short download):
