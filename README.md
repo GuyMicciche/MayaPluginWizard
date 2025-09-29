@@ -163,7 +163,7 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
 2. Download [Git Bash](https://gitforwindows.org/)
 3. Download [Ninja](https://ninja-build.org/) and add it to your PATH environment variable
 4. Open `Git Bash`, cd inside any folder (ex. cd "%USERPROFILE%\Desktop\Qt"), and execute these commands to clone and initialize:
-   ```bash
+   ```batch
    # Initial cloning for Qt6 for Maya 2026/2025"
    git clone git://code.qt.io/qt/qt5.git qt6
    cd qt6
@@ -175,7 +175,7 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    cd qt5
    git checkout v5.15.2  
    ```
-   ```bash
+   ```batch
    # Maya 2026/2025
    # Minimal common subset init (short download)
    perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtdeclarative
@@ -184,7 +184,7 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    # Minimal common subset init (short download)
    perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtdeclarative
    ```
-   ```bash
+   ```batch
    # Maya 2026/2025
    # More comprehensive subset init (longer download)
    init-repository --module-subset=qtbase,qtdeclarative,qtmultimedia,qttools,qtpositioning,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtremoteobjects,qtscxml,qtspeech,qt3d,qtshadertools,qtsvg,qt5compat
@@ -194,32 +194,32 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtxmlpatterns,qtnetworkauth,qtremoteobjects,qtscxml,qtspeech,qtactiveqt,qt3d,qtgamepad,qtlocation,qtdeclarative,qtquickcontrols2,qtwebview
    ```
 5. Open `x64 Native Tools Command Prompt for VS 2022` and cd inside your temporary directory from step 3 (ex. cd ""%USERPROFILE%\Desktop\Qt"), and enter is command to configure:
-   ```bash
+   ```batch
    # 5.15.2
    # Build configuration
    configure.bat -prefix C:\Qt\5.15.2-maya -opensource -confirm-license -shared -debug-and-release -platform win32-msvc -opengl desktop -nomake examples -nomake tests -no-compile-examples -mp
    ```
 6. Compile Qt in the source directory:
-   ```bash
+   ```batch
    # Compile Qt in the source directory C:\Users\Guy\Desktop\Qt\qt5 (this take a long time)
    nmake
    ```
 7. Install to C:\Qt\5.15.2-maya:
-   ```bash
+   ```batch
    # Copy the files from C:\Users\Guy\Desktop\Qt\qt5\qtbase to C:\Qt\5.15.2-maya
    nmake install
    ```
 8. Qt will be available in `C:\Qt\5.15.2-maya`
 
 ## Qt 6.5.3 build for Maya 2026/2025
-```bash
+```batch
 REM ========================================
 REM Build Qt 6.5.3 for Maya 2025/2026
 REM ========================================
 REM Prerequisites:
 REM - Visual Studio 2019 (MSVC 14.2x)
 REM - Strawberry Perl installed and in PATH
-REM - Python 3.11.x (Maya 2025 Python version)
+REM - Python 3.11.x (Maya 2025's Python version)
 REM ========================================
 
 REM Step 1: Set up Visual Studio environment
@@ -234,7 +234,7 @@ git switch 6.5.3
 REM Step 3: Initialize repositories with Maya 2025/2026 modules
 perl init-repository --module-subset=qtbase,qtdeclarative,qtmultimedia,qttools,qtpositioning,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtremoteobjects,qtscxml,qtspeech,qt3d,qtshadertools,qtsvg,qt5compat
 
-REM Step 4: Configure Qt 6.5.3 to match Maya build
+REM Step 4: Configure Qt 6.5.3 to match Maya's build
 configure.bat -prefix C:\Qt\6.5.3-maya -opensource -confirm-license -shared -debug-and-release -platform win32-msvc -opengl desktop -nomake examples -nomake tests -no-compile-examples -mp
 
 REM Step 5: Build Qt (this will take several hours)
@@ -250,14 +250,14 @@ REM ========================================
 ```
 
 ## Qt 5.15.2 build for Maya 2024/2023/2022
-```bash
+```batch
 REM ========================================
 REM Build Qt 5.15.2 for Maya 2024
 REM ========================================
 REM Prerequisites:
 REM - Visual Studio 2019 (MSVC 14.2x)
 REM - Strawberry Perl installed and in PATH
-REM - Python 3.10.8 (Maya 2024s Python version)
+REM - Python 3.10.8 (Maya 2024's Python version)
 REM ========================================
 
 REM Step 1: Set up Visual Studio environment
@@ -271,7 +271,7 @@ git checkout v5.15.2
 REM Step 3: Initialize repositories with Maya 2024 modules
 perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtxmlpatterns,qtnetworkauth,qtremoteobjects,qtscxml,qtspeech,qtactiveqt,qt3d,qtgamepad,qtlocation,qtdeclarative,qtquickcontrols2,qtwebview
 
-REM Step 4: Configure Qt 5.15.2 to match Maya build
+REM Step 4: Configure Qt 5.15.2 to match Maya's build
 configure.bat -prefix C:\Qt\5.15.2-maya -opensource -confirm-license -shared -debug-and-release -platform win32-msvc -opengl desktop -nomake examples -nomake tests -no-compile-examples -mp
 
 REM Step 5: Build Qt (this will take several hours)
