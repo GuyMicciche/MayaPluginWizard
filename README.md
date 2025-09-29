@@ -217,30 +217,37 @@ REM ========================================
 REM Build Qt 6.5.3 for Maya 2025/2026
 REM ========================================
 REM Prerequisites:
-REM - Visual Studio 2019 (MSVC 14.2x)
+REM - Visual Studio 2019 or 2022 (MSVC)
 REM - Strawberry Perl installed and in PATH
-REM - Python 3.11.x (Maya 2025's Python version)
+REM - Python 3.6+ (Maya 2025 uses Python 3.11.x)
+REM - Ninja build system in PATH
 REM ========================================
 
 REM Step 1: Set up Visual Studio environment
 "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
 
-REM Step 2: Clone Qt 6.5.3 source
+REM Step 2: Clone Qt 6.5.3 source (if not already done)
 git clone https://code.qt.io/qt/qt5.git qt6
 cd qt6
-git switch dev
 git switch 6.5.3
 
-REM Step 3: Initialize repositories with Maya 2025/2026 modules
+REM Step 3: Create separate build directory (IMPORTANT!)
+cd C:\Users\Guy\Desktop\Qt
+mkdir qt6-build
+cd qt6-build
+
+REM Step 4: Initialize submodules (only needed once)
+cd ..\qt6
 perl init-repository --module-subset=qtbase,qtdeclarative,qtmultimedia,qttools,qtpositioning,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtremoteobjects,qtscxml,qtspeech,qt3d,qtshadertools,qtsvg,qt5compat
+cd ..\qt6-build
 
-REM Step 4: Configure Qt 6.5.3 to match Maya's build
-configure.bat -prefix C:\Qt\6.5.3-maya -opensource -confirm-license -shared -platform win32-msvc -nomake examples -nomake tests -mp -Wno-dev
+REM Step 5: Configure Qt 6.5.3 from build directory
+..\qt6\configure.bat -prefix C:\Qt\6.5.3-maya -opensource -confirm-license -shared -nomake examples -nomake tests
 
-REM Step 5: Build Qt (this will take several hours)
+REM Step 6: Build Qt (this will take several hours)
 cmake --build . --parallel
 
-REM Step 6: Install to prefix location
+REM Step 7: Install to prefix location
 cmake --install .
 
 REM ========================================
