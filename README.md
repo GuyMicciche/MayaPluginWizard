@@ -176,16 +176,26 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    # More comprehensive subset init (longer download):
    perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtxmlpatterns,qtnetworkauth,qtremoteobjects,qtscxml,qtspeech,qtactiveqt,qt3d,qtgamepad,qtlocation,qtdeclarative,qtquickcontrols2,qtwebview
    ```
-4. Open `x64 Native Tools Command Prompt for VS 2022` and cd inside your temporary directory from step 3 (ex. cd ""%USERPROFILE%\Desktop\Qt"), and enter is command to build:
+4. Open `x64 Native Tools Command Prompt for VS 2022` and cd inside your temporary directory from step 3 (ex. cd ""%USERPROFILE%\Desktop\Qt"), and enter is command to configure:
    ```bash
-   # Build configuration (this will take a while)
+   # Build configuration
    configure.bat -prefix C:\Qt\5.15.2-maya -opensource -confirm-license -shared -debug-and-release -platform win32-msvc -opengl desktop -nomake examples -nomake tests -no-compile-examples -mp
    ```
-5. Qt will be available in `C:\Qt\5.15.2-maya`
+5. Compile Qt in the source directory:
+   ```bash
+   # Compile Qt in the source directory C:\Users\Guy\Desktop\Qt\qt5 (this take a long time)
+   nmake
+   ```
+6. Install to C:\Qt\5.15.2-maya:
+   ```bash
+   # Copy the files from C:\Users\Guy\Desktop\Qt\qt5\qtbase to C:\Qt\5.15.2-maya
+   nmake install
+   ```
+7. Qt will be available in `C:\Qt\5.15.2-maya`
 
 ---
 
-# How to setup environment in Visual Studio for Maya C++ API
+# How to manually setup a Visual Studi environment for Maya C++ API and Qt
 
 ## Visual Studio Suggestion
 
