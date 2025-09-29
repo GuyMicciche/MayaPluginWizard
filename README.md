@@ -194,7 +194,10 @@ cd qt6-build
 
 REM Step 4: Initialize submodules (only needed once)
 cd ..\qt6
-perl init-repository --module-subset=qtbase,qtdeclarative,qtmultimedia,qttools,qtpositioning,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtremoteobjects,qtscxml,qtspeech,qt3d,qtshadertools,qtsvg,qt5compat
+:: Basic
+perl init-repository --module-subset=qtbase,qtdeclarative,qt3d,qtsvg,qttools
+:: Advanced
+::perl init-repository --module-subset=qtbase,qtdeclarative,qtmultimedia,qttools,qtpositioning,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtremoteobjects,qtscxml,qtspeech,qt3d,qtshadertools,qtsvg,qt5compat
 cd ..\qt6-build
 
 REM Step 5: Configure Qt 6.5.3 from build directory
@@ -232,7 +235,10 @@ cd qt5
 git checkout v5.15.2
 
 REM Step 3: Initialize repositories with Maya 2024 modules
-perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtxmlpatterns,qtnetworkauth,qtremoteobjects,qtscxml,qtspeech,qtactiveqt,qt3d,qtgamepad,qtlocation,qtdeclarative,qtquickcontrols2,qtwebview
+:: Basic
+perl init-repository --module-subset=qtbase,qtdeclarative,qt3d,qtsvg,qttools
+:: Advanced
+::perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtxmlpatterns,qtnetworkauth,qtremoteobjects,qtscxml,qtspeech,qtactiveqt,qt3d,qtgamepad,qtlocation,qtdeclarative,qtquickcontrols2,qtwebview
 
 REM Step 4: Configure Qt 5.15.2 to match Maya's build
 configure.bat -prefix C:\Qt\5.15.2-maya -opensource -confirm-license -shared -debug-and-release -platform win32-msvc -opengl desktop -nomake examples -nomake tests -no-compile-examples -mp
