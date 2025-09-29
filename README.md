@@ -166,7 +166,8 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    # Initial cloning for Qt6 for Maya 2026/2025"
    git clone git://code.qt.io/qt/qt5.git qt6
    cd qt6
-   git checkout v6.5.3
+   git switch dev
+   git switch 6.5.3
 
    # Initial cloning for Qt5 for Maya 2024/2023/2022"
    git clone https://code.qt.io/qt/qt5.git
@@ -174,15 +175,26 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    git checkout v5.15.2  
    ```
    ```bash
-   # Minimal common subset init (short download):
+   # Maya 2026/2025
+   # Minimal common subset init (short download)
+   init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtdeclarative
+
+   # Maya 2024/2023/2022
+   # Minimal common subset init (short download)
    perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtdeclarative
    ```
    ```bash
-   # More comprehensive subset init (longer download):
+   # Maya 2026/2025
+   # More comprehensive subset init (longer download)
+   init-repository --module-subset=qtbase,qtdeclarative,qtmultimedia,qttools,qtpositioning,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtremoteobjects,qtscxml,qtspeech,qt3d,qtshadertools,qtsvg,qt5compat
+
+   # Maya 2024/2023/2022
+   # More comprehensive subset init (longer download)
    perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtxmlpatterns,qtnetworkauth,qtremoteobjects,qtscxml,qtspeech,qtactiveqt,qt3d,qtgamepad,qtlocation,qtdeclarative,qtquickcontrols2,qtwebview
    ```
 4. Open `x64 Native Tools Command Prompt for VS 2022` and cd inside your temporary directory from step 3 (ex. cd ""%USERPROFILE%\Desktop\Qt"), and enter is command to configure:
    ```bash
+   # 5.15.2
    # Build configuration
    configure.bat -prefix C:\Qt\5.15.2-maya -opensource -confirm-license -shared -debug-and-release -platform win32-msvc -opengl desktop -nomake examples -nomake tests -no-compile-examples -mp
    ```
