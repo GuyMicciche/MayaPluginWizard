@@ -235,7 +235,7 @@ REM Step 3: Initialize repositories with Maya 2025/2026 modules
 perl init-repository --module-subset=qtbase,qtdeclarative,qtmultimedia,qttools,qtpositioning,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtremoteobjects,qtscxml,qtspeech,qt3d,qtshadertools,qtsvg,qt5compat
 
 REM Step 4: Configure Qt 6.5.3 to match Maya's build
-configure.bat -prefix C:\Qt\6.5.3-maya
+configure.bat -prefix C:\Qt\6.5.3-maya -opensource -confirm-license -shared -platform win32-msvc -nomake examples -nomake tests -mp -Wno-dev
 
 REM Step 5: Build Qt (this will take several hours)
 cmake --build . --parallel
