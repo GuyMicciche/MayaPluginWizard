@@ -183,6 +183,136 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    ```
 5. Qt will be available in `C:\Qt\5.15.2-maya`
 
+---
+
+# How to setup environment in Visual Studio for Maya C++ API
+
+## Visual Studio Suggestion
+
+Visual Studio 2022
+
+## Variable Definition
+
+Set in **System Properties > Environment Variable... > System variables**:
++ $(MAYA_LOCATION) : Your Maya installation directory
++ $(MAYA_PLUG_IN_PATH) : Your Maya plug-ins directory
+
+## Configuration
+
+### [All Configurations]
+
+#### General
+
++ Configuration Properties -> General -> General Properties -> Output Directory -> `$(Configuration)\`
++ Configuration Properties -> General -> General Properties -> Intermediate Directory -> `$(Configuration)\`
++ Configuration Properties -> General -> General Properties -> Configuration Type -> `Dynamic Library (.dll)`
++ Configuration Properties -> General -> General Properties -> C++ Language Standard -> `ISO C++17 Standard (/std:c++17)`
+
+#### Advanced
+
++ Configuration Properties -> Advanced -> Advanced Properties -> Target File Extension -> `.mll`
+
+#### C/C++
+
++ Configuration Properties -> C/C++ -> General -> Additional Include Directories -> [%(MAYA_LOCATION)\include](https://msdn.microsoft.com/en-us/library/hhzbb5c8(v=vs.110).aspx)
++ Configuration Properties -> C/C++ -> General -> Debug Information Format -> [ProgramDatabase (/Zi)](https://msdn.microsoft.com/en-us/library/958x11bc(v=vs.110).aspx)
++ Configuration Properties -> C/C++ -> General -> Warning Level -> [Level3 (/W3)](https://msdn.microsoft.com/en-us/library/thxezb7y(v=vs.110).aspx)
++ Configuration Properties -> C/C++ -> General -> Multi-processor Compilation -> [Yes (/MP)](https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2012/bb385193(v=vs.110))
+
+#### Linker
+
++ Configuration Properties -> Linker -> General -> Additional Library Directories -> [$(MAYA_LOCATION)\lib](https://msdn.microsoft.com/en-us/library/ee855621(v=vs.110).aspx)
++ Configuration Properties -> Linker -> Input -> Additional Dependencies -> [(Fill below)](https://msdn.microsoft.com/en-us/library/1xhzskbe(v=vs.110).aspx)
+
+Foundation.lib</br>
+OpenMaya.lib</br>
+OpenMayaAnim.lib `(optional)`</br>
+OpenMayaFX.lib `(optional)`</br>
+OpenMayaRender.lib `(optional)`</br>
+OpenMayaUI.lib `(optional)`
+
++ Configuration Properties -> Linker -> Command Line -> Additional Options -> `/export:initializePlugin /export:uninitializePlugin`
+
+#### Build Events
+
+Make sure `unload_plugin.py` and `load_plugin.py` are in your project directory, with [Python](https://www.python.org/) installed (not from the  Windows Store)
++ Configuration Properties -> Build Events -> Pre-Build Event -> `python $(ProjectDir)unload_plugin.py"`
++ Configuration Properties -> Build Events -> Post-Build Event -> `copy $(TargetPath) "$(MAYA_PLUG_IN_PATH)\$(TargetName)$(TargetExt)" /b /y
+python $(ProjectDir)load_plugin.py`
+
+---
+
+### [Release]
+
+#### Advanced
+
++ Configuration Properties -> Advanced -> Advanced Properties -> Use Debug Libraries -> `Yes`
+
+#### C/C++
+
++ Configuration Properties -> C/C++ -> Optimization -> Optimization -> [Maximum Optimization (Favor Speed) (/O2)](https://msdn.microsoft.com/en-us/us-en/library/8f8h5cxt(v=vs.110).aspx)  
++ Configuration Properties -> C/C++ -> Preprocessor -> Preprocessor Definitions -> [(Fill below)](https://msdn.microsoft.com/en-us/library/hhzbb5c8(v=vs.110).aspx)
+
+NDEBUG</br>
+WIN32</br>
+\_WINDOWS</br>
+\_USRDLL</br>
+NT\_PLUGIN</br>
+\_HAS\_ITERATOR\_DEBUGGING=0</br>
+\_SECURE\_SCL=0</br>
+\_SECURE\_SCL\_THROWS=0</br>
+\_SECURE\_SCL\_DEPRECATE=0</br>
+\_CRT\_SECURE\_NO\_DEPRECATE</br>
+TBB\_USE\_DEBUG=0</br>
+\_\_TBB\_LIB_NAME=tbb.lib</br>
+REQUIRE\_IOSTREAM</br>
+AW\_NEW\_IOSTREAMS</br>
+Bits64\_
+
+---
+
+### [Debug]
+
+#### Advanced
+
++ Configuration Properties -> Advanced -> Advanced Properties -> Use Debug Libraries -> `No`
+
+#### C/C++
+
++ Configuration Properties -> C/C++ -> Optimization -> Optimization -> [Disabled (/Od)](https://msdn.microsoft.com/en-us/us-en/library/8f8h5cxt(v=vs.110).aspx)
++ Configuration Properties -> C/C++ -> Preprocessor -> Preprocessor Definitions -> [(Fill below)](https://msdn.microsoft.com/en-us/library/hhzbb5c8(v=vs.110).aspx)
+
+\_DEBUG</br>
+WIN32</br>
+\_WINDOWS</br>
+\_USRDLL</br>
+NT\_PLUGIN</br>
+\_HAS\_ITERATOR\_DEBUGGING=0</br>
+\_SECURE\_SCL=0</br>
+\_SECURE\_SCL\_THROWS=0</br>
+\_SECURE\_SCL\_DEPRECATE=0</br>
+\_CRT\_SECURE\_NO\_DEPRECATE</br> TBB\_USE\_DEBUG=0</br>
+\_\_TBB\_LIB\_NAME=tbb.lib</br>
+REQUIRE\_IOSTREAM</br>
+AW\_NEW\_IOSTREAMS</br>
+Bits64\_
+
+---
+
+## Additional Qt Project Qwerks
+
+NOTE: **Qt Visual Studio Tools** will do all of the following by default if you convert your project into a Qt project. 
+
++ If your project `.h` files has a Q_OBJECT in it, then a corresponding **moc** `.cpp` file will need to be generated. Right-click your `.h` file with Q_OBJECT and select **Properties**. Go to **Configuration Properties -> General -> Item Type** and set it to `Custom Build Tool`. Click **Apply**. Then go to **Custom Build Tool -> General** and enter the following:
+  - Command Line: `"$(MAYA_LOCATION)\bin\moc.exe" "%(FullPath)" -o "$(ProjectDir)moc_%(Filename).cpp"`
+  - Description: `Running moc on "%(FullPath)"`
+  - Outputs: `$(ProjectDir)moc_%(Filename).cpp`
++ If your project has a `Resources.qrc` in it, then a corresponding **moc** `.cpp` file will need to be generated. Right-click your `.qrc` file and select **Properties**. Go to **Configuration Properties -> General -> Item Type** and set it to `Custom Build Tool`. Click **Apply**. Then go to **Custom Build Tool -> General** and enter the following:
+  - Command Line: `"$(MAYA_LOCATION)\bin\rcc.exe" -name resources "%(FullPath)" -o "%(Filename).qrc.cpp"`
+  - Description: `Converting resource "%(FullPath)"`
+  - Outputs: `%(Filename).qrc.cpp`
++ After the first build, you will need to import all the generated `.cpp` files once. It will always get updated on each build. Again, this is not necessary if you are using the **Qt Visual Studio Tools** extension for Visual Studio
+
 ## Related Resources
 
 - [Maya Developer Help Center](https://help.autodesk.com/view/MAYADEV/2026/ENU/)
