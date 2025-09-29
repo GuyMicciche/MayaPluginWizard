@@ -242,7 +242,7 @@ perl init-repository --module-subset=qtbase,qtdeclarative,qtmultimedia,qttools,q
 cd ..\qt6-build
 
 REM Step 5: Configure Qt 6.5.3 from build directory
-..\qt6\configure.bat -prefix C:\Qt\6.5.3-maya -opensource -confirm-license -shared -nomake examples -nomake tests
+..\qt6\configure.bat -prefix C:\Qt\6.5.3-maya -opensource -confirm-license -shared -debug-and-release -nomake examples -nomake tests -opengl desktop
 
 REM Step 6: Build Qt (this will take several hours)
 cmake --build . --parallel
