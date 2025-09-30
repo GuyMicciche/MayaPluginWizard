@@ -131,13 +131,9 @@ The generated projects include:
 
 These steps are only necessary if you plan on using the **Qt Visual Studio Tools** in Visual Studio:
 1. Note Qt version for your Maya version:
-   - Maya 2026: Qt 6.5.3 (Qt comes in the [devkit](https://aps.autodesk.com/developer/overview/maya))
-   - Maya 2025: Qt 6.5.3 (Qt comes in the [devkit](https://aps.autodesk.com/developer/overview/maya))
-   - Maya 2024: Qt 5.15.2 (Qt in Maya directory)
-   - Maya 2023: Qt 5.15.2 (Qt in Maya directory)
-   - Maya 2022: Qt 5.15.2 (Qt in Maya directory)
-   - Maya 2020: Qt 5.12.5 (Qt in Maya directory)
-   - Maya 2019: Qt 5.12.5 (Qt in Maya directory)
+   - Maya 2026/2025: Qt 6.5.3 (Qt comes in the [Maya API SDK's and tools](https://aps.autodesk.com/developer/overview/maya))
+   - Maya 2024/2023/2022: Qt 5.15.2 (Qt in Maya directory)
+   - Maya 2020/2019: Qt 5.12.5 (Qt in Maya directory)
 2. Install the **Qt Visual Studio Tools** Visual Studio extension by going to **Extensions > Manage Extensions...**
 3. Go to **Extensions > Qt VS Tools > Qt Versions** and choose the `Location` where `qmake.exe` and `qtpaths.exe` are
    - For Maya 2025+ look in the `devkitBase/Qt/bin` folder, you might have to extract `Qt.zip` to your `devkitBase` directory
@@ -160,7 +156,7 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
 ## Building Qt (Prerequisite download links)
 1. [Git Bash](https://gitforwindows.org/)
 2. [Strawberry Perl](https://strawberryperl.com/), add `.exe` to PATH
-3. [Ninja](https://github.com/ninja-build/ninja/releases/download/v1.13.1/ninja-win.zip), add `.exe` to PATH
+3. [Ninja](https://github.com/ninja-build/ninja/releases/download/v1.13.1/ninja-win.zip), add `.exe` to PATH (to build Qt 6+ with cmake)
 4. If building QtWebEngine, you will also need to add these `.exe` to PATH:
    + [GPerf](https://sourceforge.net/projects/gnuwin32/files/gperf/3.0.1/gperf-3.0.1-bin.zip/download?use_mirror=psychz&download), add `.exe` to PATH
    + [Bison](https://sourceforge.net/projects/gnuwin32/files/bison/2.4.1/bison-2.4.1-bin.zip/download?use_mirror=gigenet), add `.exe` to PATH
@@ -175,7 +171,7 @@ REM Prerequisites:
 REM - Visual Studio 2019 or 2022 (MSVC)
 REM - Strawberry Perl installed and in PATH
 REM - Python 3.11.x (Maya 2025's Python version) (with html5lib if building QtWebEngine)
-REM - Ninja build system in PATH
+REM - Ninja build system in PATH (to build with cmake)
 REM - Ninja, Bison, Flex, GPerf in PATH (Only needed for QtWebEngine)
 REM ========================================
 
