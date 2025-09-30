@@ -23,6 +23,8 @@
 			<ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$Node.h">$safeprojectname$Node.h</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$NodeMain.cpp">$safeprojectname$NodeMain.cpp</ProjectItem>
 			<ProjectItem>Maya.props</ProjectItem>
+			<ProjectItem>load_plugin.py</ProjectItem>
+			<ProjectItem>unload_plugin.py</ProjectItem>
 		</Project>
 	</TemplateContent>
 </VSTemplate>
