@@ -144,7 +144,6 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    - For Maya 2024 and below, look in `C:\Program Files\Autodesk\Maya2024\bin` folder, should have both files there
 4. If using the devkit (Maya 2025+), download it from [The Maya Developer Center](https://aps.autodesk.com/developer/overview/maya) and extract somewhere on your disk.
 5. If installing Qt (Maya 2024 and lower), see [Installing Qt](#installing-qt)
-
 6. Right-click on your C++ project, click **Qt > Convert to Qt/MSBuild project**
 7. Now every time you compile your project Qt will handle all the Qt specific files automatically (ex: Resources.qrc, converting to moc files, etc.)
 
@@ -159,12 +158,13 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
 5. Click Next, Next, Next, then click Install
 
 ## Building Qt (Prerequisite download links)
-1. Download [Git Bash](https://gitforwindows.org/)
-2. Download [Strawberry Perl](https://strawberryperl.com/), add `.exe` to PATH
-3. Download [Ninja](https://github.com/ninja-build/ninja/releases/download/v1.13.1/ninja-win.zip), add `.exe` to PATH
-4. Download [GPerf](https://sourceforge.net/projects/gnuwin32/files/gperf/3.0.1/gperf-3.0.1-bin.zip/download?use_mirror=psychz&download), add `.exe` to PATH
-5. Download [Bison](https://sourceforge.net/projects/gnuwin32/files/bison/2.4.1/bison-2.4.1-bin.zip/download?use_mirror=gigenet), add `.exe` to PATH
-6. Download [Flex](https://sourceforge.net/projects/gnuwin32/files/flex/2.5.4a-1/flex-2.5.4a-1-bin.zip/download?use_mirror=pilotfiber&download), add `.exe` to PATH
+1. [Git Bash](https://gitforwindows.org/)
+2. [Strawberry Perl](https://strawberryperl.com/), add `.exe` to PATH
+3. [Ninja](https://github.com/ninja-build/ninja/releases/download/v1.13.1/ninja-win.zip), add `.exe` to PATH
+4. If building QtWebEngine, you will also need to add these `.exe` to PATH:
+   + [GPerf](https://sourceforge.net/projects/gnuwin32/files/gperf/3.0.1/gperf-3.0.1-bin.zip/download?use_mirror=psychz&download), add `.exe` to PATH
+   + [Bison](https://sourceforge.net/projects/gnuwin32/files/bison/2.4.1/bison-2.4.1-bin.zip/download?use_mirror=gigenet), add `.exe` to PATH
+   + [Flex](https://sourceforge.net/projects/gnuwin32/files/flex/2.5.4a-1/flex-2.5.4a-1-bin.zip/download?use_mirror=pilotfiber&download), add `.exe` to PATH
 
 ## Qt 6.5.3 build for Maya 2026/2025
 ```batch
@@ -174,7 +174,7 @@ REM ========================================
 REM Prerequisites:
 REM - Visual Studio 2019 or 2022 (MSVC)
 REM - Strawberry Perl installed and in PATH
-REM - Python 3.6+ (Maya 2025 uses Python 3.11.x) (with html5lib if building QtWebEngine)
+REM - Python 3.11.x (Maya 2025's Python version) (with html5lib if building QtWebEngine)
 REM - Ninja build system in PATH
 REM - Ninja, Bison, Flex, GPerf in PATH (Only needed for QtWebEngine)
 REM ========================================
@@ -204,7 +204,7 @@ cd qt6-build
 REM Step 4: Initialize submodules (only needed once)
 cd ..\qt6
 :: Basic
-perl init-repository --module-subset=qtbase,qtdeclarative,qt3d,qtsvg,qttools
+perl init-repository --module-subset=qtbase,qttools
 :: Advanced
 ::perl init-repository --module-subset=qtbase,qtdeclarative,qtmultimedia,qttools,qtpositioning,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtremoteobjects,qtscxml,qtspeech,qt3d,qtshadertools,qtsvg,qt5compat
 cd ..\qt6-build
@@ -254,7 +254,7 @@ git checkout v5.15.2
 
 REM Step 3: Initialize repositories with Maya 2024 modules
 :: Basic
-perl init-repository --module-subset=qtbase,qtdeclarative,qt3d,qtsvg,qttools
+perl init-repository --module-subset=qtbase,qttools
 :: Advanced
 ::perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtxmlpatterns,qtnetworkauth,qtremoteobjects,qtscxml,qtspeech,qtactiveqt,qt3d,qtgamepad,qtlocation,qtdeclarative,qtquickcontrols2,qtwebview
 
