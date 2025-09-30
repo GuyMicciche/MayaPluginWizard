@@ -94,7 +94,7 @@ Once you've created a project using this wizard, you can:
    - MAYA_PLUG_IN_PATH
  <img width="924" height="415" alt="image" src="https://github.com/user-attachments/assets/e87ef459-f53c-494e-bdb7-d3b8b6bc0ca1" />
 
-2. Create or modify `userSetup.py` to include:
+2. Create or modify `userSetup.py` to include (or run this [maya_commandport_setup.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/maya_commandport_setup.bat):
 ```python
 # userSetup.py
 import maya.cmds as cmds
@@ -162,7 +162,7 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    + [Bison](https://sourceforge.net/projects/gnuwin32/files/bison/2.4.1/bison-2.4.1-bin.zip/download?use_mirror=gigenet), add `.exe` to PATH
    + [Flex](https://sourceforge.net/projects/gnuwin32/files/flex/2.5.4a-1/flex-2.5.4a-1-bin.zip/download?use_mirror=pilotfiber&download), add `.exe` to PATH
 
-## Qt 6.5.3 build for Maya 2026/2025
+## Qt 6.5.3 build for Maya 2026/2025 [build_qt_6_5_3_for_maya_2026_2025.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_6_5_3_for_maya_2026_2025.bat)
 ```batch
 REM ========================================
 REM Build Qt 6.5.3 for Maya 2025/2026
@@ -226,7 +226,7 @@ REM C:\Qt\6.5.3-maya
 REM ========================================
 ```
 
-## Qt 5.15.2 build for Maya 2024/2023/2022
+## Qt 5.15.2 build for Maya 2024/2023/2022 [build_qt_5.15.2_for_maya_2024_2023_2022.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5.15.2_for_maya_2024_2023_2022.bat)
 ```batch
 REM ========================================
 REM Build Qt 5.15.2 for Maya 2024/2023/2022
@@ -280,7 +280,7 @@ REM C:\Qt\5.15.2-maya
 REM ========================================
 ```
 
-## Qt 5.12.5 build for Maya 2020/2019
+## Qt 5.12.5 build for Maya 2020/2019 [build_qt_5_12_5_for_maya_2020_2019.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5_12_5_for_maya_2020_2019.bat)
 ```batch
 REM ========================================
 REM Build Qt 5.12.5 for Maya 2024
