@@ -154,6 +154,7 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
 5. Click Next, Next, Next, then click Install
 
 ## Building Qt (Prerequisite download links)
+It is recommended to have the basic Qt build on your machine if you want to use the **Qt Visual Studio Tools** extension and for Visual Studio to compile `.moc` files and Qt `Resources.qrc`. You will also need Git and Perl to build to run the commands or batch scripts provided below. However if for some reason you want to build a more complete build, you will need to add the `.exe` files from Step 4 and edit the batch files to uncomment the **Advanced** `init-repository` command.
 1. [Git Bash](https://gitforwindows.org/)
 2. [Strawberry Perl](https://strawberryperl.com/), add `.exe` to PATH
 3. [Ninja](https://github.com/ninja-build/ninja/releases/download/v1.13.1/ninja-win.zip), add `.exe` to PATH (to build Qt 6+ with cmake)
