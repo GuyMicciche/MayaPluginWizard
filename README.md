@@ -150,7 +150,7 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
 4. Preferred location is C:\Qt
  <!-- <img src="https://github.com/user-attachments/assets/f6c910ea-9066-42b6-8911-5bff055d7b63" width="313" />
  <img src="https://github.com/user-attachments/assets/14437cae-6811-4671-8f0b-bfcce58af0f0" width="437" /> -->
- <img width="1624" height="1090" alt="Screenshot 2025-09-28 230416" src="https://github.com/user-attachments/assets/a7617736-7adc-4dcd-abeb-4f5e8b5062d2" />
+   <img width="1624" height="1090" alt="Screenshot 2025-09-28 230416" src="https://github.com/user-attachments/assets/a7617736-7adc-4dcd-abeb-4f5e8b5062d2" />
 5. Click Next, Next, Next, then click Install
 
 ## Building Qt (Prerequisite download links)
