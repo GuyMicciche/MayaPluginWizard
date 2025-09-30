@@ -55,7 +55,7 @@ namespace MayaPluginWizard
 
                 SetupUserSetupPy(mayaVersion);
 
-                System.Windows.Forms.MessageBox.Show(
+                MessageBox.Show(
                     $"Maya CommandPort setup completed for Maya {mayaVersion}!\n\n" +
                     $"✓ Created userSetup.py in Maya {mayaVersion} scripts folder\n" +
                     $"✓ Set MAYA_LOCATION environment variable\n" +
@@ -65,7 +65,7 @@ namespace MayaPluginWizard
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show($"Setup error: {ex.Message}");
+                MessageBox.Show($"Setup error: {ex.Message}");
             }
         }
 
