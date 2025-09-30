@@ -170,9 +170,9 @@ REM ========================================
 REM Prerequisites:
 REM - Visual Studio 2019 or 2022 (MSVC)
 REM - Strawberry Perl installed and in PATH
-REM - Python 3.11.x (Maya 2025's Python version) (with html5lib if building QtWebEngine)
 REM - Ninja build system in PATH (to build with cmake)
-REM - Bison, Flex, GPerf in PATH (Only needed for QtWebEngine)
+REM - Python 3.11.x with html5lib (only needed for QtWebEngine)
+REM - Bison, Flex, GPerf in PATH (only needed for QtWebEngine)
 REM ========================================
 
 REM Step 0: Create Qt folder on desktop if it doesn't exist
@@ -226,9 +226,8 @@ REM ========================================
 REM Build Qt 5.15.2 for Maya 2024
 REM ========================================
 REM Prerequisites:
-REM - Visual Studio 2019 (MSVC 14.2x)
+REM - Visual Studio 2019 or 2022 (MSVC)
 REM - Strawberry Perl installed and in PATH
-REM - Python 3.10.8 (Maya 2024's Python version)
 REM ========================================
 
 REM Step 0: Create Qt folder on desktop if it doesn't exist
