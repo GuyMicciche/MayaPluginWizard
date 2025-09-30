@@ -77,7 +77,7 @@
     </Content>
     <None Include="key.snk" />
     <None Include="packages.config" />
-    <Content Include="Resources\Scripts\maya_commandport_setup.bat">
+    <Content Include="maya_commandport_setup.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
@@ -138,7 +138,10 @@
     <MakeDir Directories="$(SolutionDir)Release_v$(VsixVersion)" />
     <ItemGroup>
       <VsixFiles Include="$(TargetDir)*.vsix" />
+      <ExistingVsixFiles Include="$(SolutionDir)Release_v$(VsixVersion)\*.vsix" />
     </ItemGroup>
+    <Message Text="Deleting existing VSIX files: @(ExistingVsixFiles)" Importance="High" />
+    <Delete Files="@(ExistingVsixFiles)" />
     <Message Text="Copying VSIX files: @(VsixFiles)" Importance="High" />
     <Copy SourceFiles="@(VsixFiles)" DestinationFolder="$(SolutionDir)Release_v$(VsixVersion)" />
   </Target>

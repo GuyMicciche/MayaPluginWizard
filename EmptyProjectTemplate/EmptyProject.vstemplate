@@ -25,4 +25,8 @@
 			<ProjectItem>unload_plugin.py</ProjectItem>
 		</Project>
 	</TemplateContent>
+	<WizardExtension>
+		<Assembly>MayaPluginWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=ceef1fb3aaca7209</Assembly>
+		<FullClassName>MayaPluginWizard.WizardImplementation</FullClassName>
+	</WizardExtension>
 </VSTemplate>
