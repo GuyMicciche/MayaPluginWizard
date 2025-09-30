@@ -92,7 +92,7 @@ Once you've created a project using this wizard, you can:
 1. Setup System variables **System Properties > Environment Variables... > System variables**
    - MAYA_LOCATION
    - MAYA_PLUG_IN_PATH
- <img width="924" height="415" alt="image" src="https://github.com/user-attachments/assets/e87ef459-f53c-494e-bdb7-d3b8b6bc0ca1" />
+   <img width="924" height="415" alt="image" src="https://github.com/user-attachments/assets/e87ef459-f53c-494e-bdb7-d3b8b6bc0ca1" />
 
 2. Create or modify `userSetup.py` to include (or run this [maya_commandport_setup.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/maya_commandport_setup.bat):
 ```python
