@@ -174,22 +174,31 @@ REM ========================================
 REM Prerequisites:
 REM - Visual Studio 2019 or 2022 (MSVC)
 REM - Strawberry Perl installed and in PATH
-REM - Python 3.6+ (Maya 2025 uses Python 3.11.x) with html5lib
+REM - Python 3.6+ (Maya 2025 uses Python 3.11.x) (with html5lib if building QtWebEngine)
 REM - Ninja build system in PATH
-REM - Bison, Flex, GPerf also in PATH
+REM - Ninja, Bison, Flex, GPerf in PATH (Only needed for QtWebEngine)
 REM ========================================
+
+REM Step 0: Create Qt folder on desktop if it doesn't exist
+if not exist "%USERPROFILE%\Desktop\Qt" (
+    echo Creating Qt folder on desktop...
+    mkdir "%USERPROFILE%\Desktop\Qt"
+)
 
 REM Step 1: Set up Visual Studio environment
 "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
 
 REM Step 2: Clone Qt 6.5.3 source (if not already done)
-git clone https://code.qt.io/qt/qt5.git qt6
-cd qt6
+if not exist "%USERPROFILE%\Desktop\Qt\qt6" (
+    cd "%USERPROFILE%\Desktop\Qt"
+    git clone https://code.qt.io/qt/qt5.git qt6
+)
+cd "%USERPROFILE%\Desktop\Qt\qt6"
 git switch 6.5.3
 
 REM Step 3: Create separate build directory (IMPORTANT!)
-cd C:\Users\Guy\Desktop\Qt
-mkdir qt6-build
+cd "%USERPROFILE%\Desktop\Qt"
+if not exist "qt6-build" mkdir qt6-build
 cd qt6-build
 
 REM Step 4: Initialize submodules (only needed once)
@@ -201,7 +210,7 @@ perl init-repository --module-subset=qtbase,qtdeclarative,qt3d,qtsvg,qttools
 cd ..\qt6-build
 
 REM Step 5: Configure Qt 6.5.3 from build directory
-..\qt6\configure.bat -prefix C:\Qt\6.5.3-maya -opensource -confirm-license -shared -debug-and-release -nomake examples -nomake tests -opengl desktop
+..\qt6\configure.bat -prefix C:\Qt\6.5.3-maya -opensource -confirm-license -release -nomake examples -nomake tests
 
 REM Step 6: Build Qt (this will take several hours)
 cmake --build . --parallel
@@ -226,12 +235,21 @@ REM - Strawberry Perl installed and in PATH
 REM - Python 3.10.8 (Maya 2024's Python version)
 REM ========================================
 
+REM Step 0: Create Qt folder on desktop if it doesn't exist
+if not exist "%USERPROFILE%\Desktop\Qt" (
+    echo Creating Qt folder on desktop...
+    mkdir "%USERPROFILE%\Desktop\Qt"
+)
+
 REM Step 1: Set up Visual Studio environment
 "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
 
-REM Step 2: Clone Qt 5.15.2 source
-git clone https://code.qt.io/qt/qt5.git qt5
-cd qt5
+REM Step 2: Clone Qt 5.15.2 source (if not already done)
+if not exist "%USERPROFILE%\Desktop\Qt\qt5" (
+    cd "%USERPROFILE%\Desktop\Qt"
+    git clone https://code.qt.io/qt/qt5.git qt5
+)
+cd "%USERPROFILE%\Desktop\Qt\qt5"
 git checkout v5.15.2
 
 REM Step 3: Initialize repositories with Maya 2024 modules
@@ -241,7 +259,7 @@ perl init-repository --module-subset=qtbase,qtdeclarative,qt3d,qtsvg,qttools
 ::perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtxmlpatterns,qtnetworkauth,qtremoteobjects,qtscxml,qtspeech,qtactiveqt,qt3d,qtgamepad,qtlocation,qtdeclarative,qtquickcontrols2,qtwebview
 
 REM Step 4: Configure Qt 5.15.2 to match Maya's build
-configure.bat -prefix C:\Qt\5.15.2-maya -opensource -confirm-license -shared -debug-and-release -platform win32-msvc -opengl desktop -nomake examples -nomake tests -no-compile-examples -mp
+configure.bat -prefix C:\Qt\5.15.2-maya -opensource -confirm-license -release -nomake examples -nomake tests
 
 REM Step 5: Build Qt (this will take several hours)
 nmake
