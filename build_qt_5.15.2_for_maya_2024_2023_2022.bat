@@ -13,7 +13,13 @@ if not exist "%USERPROFILE%\Desktop\Qt" (
 )
 
 REM Step 1: Set up Visual Studio environment
-"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
+echo Setting up Visual Studio environment...
+call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
+if errorlevel 1 (
+    echo ERROR: Failed to set up Visual Studio environment
+    pause
+    exit /b 1
+)
 
 REM Step 2: Clone Qt 5.15.2 source (if not already done)
 if not exist "%USERPROFILE%\Desktop\Qt\qt5" (
