@@ -162,227 +162,14 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    + [Bison](https://sourceforge.net/projects/gnuwin32/files/bison/2.4.1/bison-2.4.1-bin.zip/download?use_mirror=gigenet), add `.exe` to PATH
    + [Flex](https://sourceforge.net/projects/gnuwin32/files/flex/2.5.4a-1/flex-2.5.4a-1-bin.zip/download?use_mirror=pilotfiber&download), add `.exe` to PATH
 
-## Qt 6.5.3 build for Maya 2026/2025 [build_qt_6_5_3_for_maya_2026_2025.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_6_5_3_for_maya_2026_2025.bat)
-```batch
-REM ========================================
-REM Build Qt 6.5.3 for Maya 2025/2026
-REM ========================================
-REM Prerequisites:
-REM - Visual Studio 2019 or 2022 (MSVC)
-REM - Strawberry Perl installed and in PATH
-REM - Ninja build system in PATH (to build with cmake)
-REM - Python 3.11.x with html5lib (only needed for QtWebEngine)
-REM - Bison, Flex, GPerf in PATH (only needed for QtWebEngine)
-REM ========================================
+## Qt 6.5.3 build for Maya 2026/2025
+[build_qt_6_5_3_for_maya_2026_2025.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_6_5_3_for_maya_2026_2025.bat)
 
-REM Step 0: Create Qt folder on desktop if it doesn't exist
-if not exist "%USERPROFILE%\Desktop\Qt" (
-    echo Creating Qt folder on desktop...
-    mkdir "%USERPROFILE%\Desktop\Qt"
-)
+## Qt 5.15.2 build for Maya 2024/2023/2022
+[build_qt_5.15.2_for_maya_2024_2023_2022.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5.15.2_for_maya_2024_2023_2022.bat)
 
-REM Step 1: Set up Visual Studio environment
-echo Setting up Visual Studio environment...
-call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
-if errorlevel 1 (
-    echo ERROR: Failed to set up Visual Studio environment
-    pause
-    exit /b 1
-)
-
-REM Step 2: Clone Qt 6.5.3 source (if not already done)
-if not exist "%USERPROFILE%\Desktop\Qt\qt6" (
-    cd "%USERPROFILE%\Desktop\Qt"
-    git clone https://code.qt.io/qt/qt5.git qt6
-)
-cd "%USERPROFILE%\Desktop\Qt\qt6"
-git switch 6.5.3
-
-REM Step 3: Create separate build directory (IMPORTANT!)
-cd "%USERPROFILE%\Desktop\Qt"
-if not exist "qt6-build" mkdir qt6-build
-cd qt6-build
-
-REM Step 4: Initialize submodules (only needed once)
-cd ..\qt6
-:: Basic
-perl init-repository --module-subset=qtbase,qttools
-:: Advanced
-::perl init-repository --module-subset=qtbase,qtdeclarative,qtmultimedia,qttools,qtpositioning,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtremoteobjects,qtscxml,qtspeech,qt3d,qtshadertools,qtsvg,qt5compat
-cd ..\qt6-build
-
-REM Step 5: Configure Qt 6.5.3 from build directory
-call ..\qt6\configure.bat -prefix C:\Qt\6.5.3-maya -opensource -confirm-license -release -nomake examples -nomake tests
-
-REM Step 6: Build Qt (this will take several hours)
-cmake --build . --parallel
-
-REM Step 7: Install to prefix location
-cmake --install .
-
-REM ========================================
-REM Build complete! Qt installed to:
-REM C:\Qt\6.5.3-maya
-REM ========================================
-```
-
-## Qt 5.15.2 build for Maya 2024/2023/2022 [build_qt_5.15.2_for_maya_2024_2023_2022.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5.15.2_for_maya_2024_2023_2022.bat)
-```batch
-REM ========================================
-REM Build Qt 5.15.2 for Maya 2024/2023/2022
-REM ========================================
-REM Prerequisites:
-REM - Visual Studio 2019 or 2022 (MSVC)
-REM - Strawberry Perl installed and in PATH
-REM ========================================
-
-REM Step 0: Create Qt folder on desktop if it doesn't exist
-if not exist "%USERPROFILE%\Desktop\Qt" (
-    echo Creating Qt folder on desktop...
-    mkdir "%USERPROFILE%\Desktop\Qt"
-)
-
-REM Step 1: Set up Visual Studio environment
-echo Setting up Visual Studio environment...
-call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
-if errorlevel 1 (
-    echo ERROR: Failed to set up Visual Studio environment
-    pause
-    exit /b 1
-)
-
-REM Step 2: Clone Qt 5.15.2 source (if not already done)
-if not exist "%USERPROFILE%\Desktop\Qt\qt5" (
-    cd "%USERPROFILE%\Desktop\Qt"
-    git clone https://code.qt.io/qt/qt5.git qt5
-)
-cd "%USERPROFILE%\Desktop\Qt\qt5"
-git checkout v5.15.2
-
-REM Step 3: Initialize repositories with Maya 2024 modules
-:: Basic
-perl init-repository --module-subset=qtbase,qttools
-:: Advanced
-::perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtxmlpatterns,qtnetworkauth,qtremoteobjects,qtscxml,qtspeech,qtactiveqt,qt3d,qtgamepad,qtlocation,qtdeclarative,qtquickcontrols2,qtwebview
-
-REM Step 4: Configure Qt 5.15.2 to match Maya's build
-call configure.bat -prefix C:\Qt\5.15.2-maya -opensource -confirm-license -release -nomake examples -nomake tests
-
-REM Step 5: Build Qt (this will take several hours)
-nmake
-
-REM Step 6: Install to prefix location
-nmake install
-
-REM ========================================
-REM Build complete! Qt installed to:
-REM C:\Qt\5.15.2-maya
-REM ========================================
-```
-
-## Qt 5.12.5 build for Maya 2020/2019 [build_qt_5_12_5_for_maya_2020_2019.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5_12_5_for_maya_2020_2019.bat)
-```batch
-REM ========================================
-REM Build Qt 5.12.5 for Maya 2024
-REM ========================================
-REM Prerequisites:
-REM - Visual Studio 2019 or 2022 (MSVC)
-REM - Strawberry Perl installed and in PATH
-REM ========================================
-
-REM Step 0: Create Qt folder on desktop if it doesn't exist
-if not exist "%USERPROFILE%\Desktop\Qt" (
-    echo Creating Qt folder on desktop...
-    mkdir "%USERPROFILE%\Desktop\Qt"
-)
-
-REM Step 1: Set up Visual Studio environment
-echo Setting up Visual Studio environment...
-call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
-if errorlevel 1 (
-    echo ERROR: Failed to set up Visual Studio environment
-    pause
-    exit /b 1
-)
-
-REM Step 2: Clone Qt 5.12.5 source (if not already done)
-if not exist "%USERPROFILE%\Desktop\Qt\qt5" (
-    cd "%USERPROFILE%\Desktop\Qt"
-    git clone https://code.qt.io/qt/qt5.git qt5
-)
-cd "%USERPROFILE%\Desktop\Qt\qt5"
-git checkout v5.12.5
-
-REM Step 3: Initialize repositories with Maya 2020/2019 modules
-:: Basic
-perl init-repository --module-subset=qtbase,qttools
-:: Advanced
-::perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtxmlpatterns,qtnetworkauth,qtremoteobjects,qtscxml,qtspeech,qtactiveqt,qt3d,qtgamepad,qtlocation,qtdeclarative,qtquickcontrols2,qtwebview
-
-REM Step 4: Configure Qt 5.12.5 to match Maya's build
-call configure.bat -prefix C:\Qt\5.12.5-maya -opensource -confirm-license -release -nomake examples -nomake tests
-
-REM Step 5: Build Qt (this will take several hours)
-nmake
-
-REM Step 6: Install to prefix location
-nmake install
-
-REM ========================================
-REM Build complete! Qt installed to:
-REM C:\Qt\5.12.5-maya
-REM ========================================
-```
-
-## Qt 6.5.3 Module Mapping (Maya 2026/2025)
-
-| Module | Provides Include Directories |
-|--------|------------------------------|
-| **qtbase** | QtCore, QtGui, QtWidgets, QtNetwork, QtSql, QtTest, QtConcurrent, QtOpenGL, QtOpenGLWidgets, QtPrintSupport, QtXml, QtDBus, QtDeviceDiscoverySupport, QtFbSupport, QtFreetype, QtHarfbuzz, QtJpeg, QtPng, QtZlib |
-| **qtdeclarative** | QtQml, QtQmlCore, QtQmlModels, QtQmlWorkerScript, QtQmlLocalStorage, QtQmlXmlListModel, QtQmlIntegration, QtQmlCompiler, QtQmlTypeRegistrar, QtQmlDom, QtQmlDebug, QtQuick, QtQuickWidgets, QtQuickTest, QtQuickControls2, QtQuickControls2Impl, QtQuickTemplates2, QtQuickLayouts, QtQuickParticles, QtQuickShapes, QtQuickEffects, QtQuickDialogs2, QtQuickDialogs2QuickImpl, QtQuickDialogs2Utils, QtQuickTestUtils, QtQuickControlsTestUtils, QtPacketProtocol, QtLabsAnimation, QtLabsFolderListModel, QtLabsQmlModels, QtLabsSettings, QtLabsSharedImage, QtLabsWavefrontMesh, QtExampleIcons |
-| **qtmultimedia** | QtMultimedia, QtMultimediaWidgets, QtMultimediaQuick, QtSpatialAudio |
-| **qttools** | QtDesigner, QtDesignerComponents, QtHelp, QtUiTools, QtUiPlugin, QtTools |
-| **qtpositioning** | QtPositioning, QtPositioningQuick |
-| **qtserialport** | QtSerialPort |
-| **qtserialbus** | QtSerialBus |
-| **qtsensors** | QtSensors, QtSensorsQuick |
-| **qtwebsockets** | QtWebSockets |
-| **qtwebchannel** | QtWebChannel |
-| **qtwebengine** | QtWebEngineCore, QtWebEngineWidgets, QtWebEngineQuick, QtPdf, QtPdfQuick, QtPdfWidgets, QtWebView, QtWebViewQuick |
-| **qtremoteobjects** | QtRemoteObjects, QtRemoteObjectsQml, QtRepParser |
-| **qtscxml** | QtScxml, QtScxmlQml, QtStateMachine, QtStateMachineQml |
-| **qtspeech** | QtTextToSpeech |
-| **qt3d** | Qt3DCore, Qt3DRender, Qt3DInput, Qt3DLogic, Qt3DAnimation, Qt3DExtras, Qt3DQuick, Qt3DQuickAnimation, Qt3DQuickExtras, Qt3DQuickInput, Qt3DQuickRender, Qt3DQuickScene2D |
-| **qtshadertools** | QtShaderTools |
-| **qtsvg** | QtSvg, QtSvgWidgets |
-| **qt5compat** | QtCore5Compat |
-
-## Qt 5.15.2 Module Mapping (Maya 2024/2023/2022)
-
-| Module | Provides Include Directories |
-|--------|------------------------------|
-| **qtbase** | QtCore, QtGui, QtWidgets, QtNetwork, QtSql, QtTest, QtConcurrent, QtOpenGL, QtOpenGLExtensions, QtPrintSupport, QtXml, QtDBus, QtPlatformHeaders, QtAccessibilitySupport, QtThemeSupport, QtFontDatabaseSupport, QtDeviceDiscoverySupport, QtEdidSupport, QtEventDispatcherSupport, QtFbSupport, QtPlatformCompositorSupport, QtWindowsUIAutomationSupport, QtWinExtras, QtZlib |
-| **qtsvg** | QtSvg |
-| **qtmultimedia** | QtMultimedia, QtMultimediaWidgets, QtMultimediaQuick |
-| **qttools** | QtDesigner, QtDesignerComponents, QtHelp, QtUiTools, QtUiPlugin |
-| **qtserialport** | QtSerialPort |
-| **qtserialbus** | QtSerialBus |
-| **qtsensors** | QtSensors |
-| **qtwebsockets** | QtWebSockets |
-| **qtwebchannel** | QtWebChannel |
-| **qtwebengine** | QtWebEngine, QtWebEngineCore, QtWebEngineWidgets, QtPdf, QtPdfWidgets |
-| **qtxmlpatterns** | QtXmlPatterns |
-| **qtnetworkauth** | (OAuth support) |
-| **qtremoteobjects** | QtRemoteObjects, QtRepParser |
-| **qtscxml** | QtScxml |
-| **qtspeech** | QtTextToSpeech |
-| **qtactiveqt** | ActiveQt (Windows only) |
-| **qt3d** | Qt3DCore, Qt3DRender, Qt3DInput, Qt3DLogic, Qt3DAnimation, Qt3DExtras, Qt3DQuick, Qt3DQuickAnimation, Qt3DQuickExtras, Qt3DQuickInput, Qt3DQuickRender, Qt3DQuickScene2D |
-| **qtgamepad** | QtGamepad |
-| **qtlocation** | QtLocation, QtPositioning, QtPositioningQuick |
-| **qtdeclarative** | QtQml, QtQmlModels, QtQmlWorkerScript, QtQuick, QtQuickWidgets, QtQuickTest, QtQuickParticles, QtQuickShapes, QtPacketProtocol, QtQmlDebug |
-| **qtquickcontrols2** | QtQuickControls2, QtQuickTemplates2 |
-| **qtwebview** | QtWebView |
+## Qt 5.12.5 build for Maya 2020/2019
+[build_qt_5_12_5_for_maya_2020_2019.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5_12_5_for_maya_2020_2019.bat)
 
 ---
 
@@ -513,6 +300,60 @@ NOTE: **Qt Visual Studio Tools** will do all of the following by default if you 
   - Description: `Converting resource "%(FullPath)"`
   - Outputs: `%(Filename).qrc.cpp`
 + After the first build, you will need to import all the generated `.cpp` files once. It will always get updated on each build. Again, this is not necessary if you are using the **Qt Visual Studio Tools** extension for Visual Studio
+
+---
+
+## Qt 6.5.3 Module Mapping (Maya 2026/2025)
+
+| Module | Provides Include Directories |
+|--------|------------------------------|
+| **qtbase** | QtCore, QtGui, QtWidgets, QtNetwork, QtSql, QtTest, QtConcurrent, QtOpenGL, QtOpenGLWidgets, QtPrintSupport, QtXml, QtDBus, QtDeviceDiscoverySupport, QtFbSupport, QtFreetype, QtHarfbuzz, QtJpeg, QtPng, QtZlib |
+| **qtdeclarative** | QtQml, QtQmlCore, QtQmlModels, QtQmlWorkerScript, QtQmlLocalStorage, QtQmlXmlListModel, QtQmlIntegration, QtQmlCompiler, QtQmlTypeRegistrar, QtQmlDom, QtQmlDebug, QtQuick, QtQuickWidgets, QtQuickTest, QtQuickControls2, QtQuickControls2Impl, QtQuickTemplates2, QtQuickLayouts, QtQuickParticles, QtQuickShapes, QtQuickEffects, QtQuickDialogs2, QtQuickDialogs2QuickImpl, QtQuickDialogs2Utils, QtQuickTestUtils, QtQuickControlsTestUtils, QtPacketProtocol, QtLabsAnimation, QtLabsFolderListModel, QtLabsQmlModels, QtLabsSettings, QtLabsSharedImage, QtLabsWavefrontMesh, QtExampleIcons |
+| **qtmultimedia** | QtMultimedia, QtMultimediaWidgets, QtMultimediaQuick, QtSpatialAudio |
+| **qttools** | QtDesigner, QtDesignerComponents, QtHelp, QtUiTools, QtUiPlugin, QtTools |
+| **qtpositioning** | QtPositioning, QtPositioningQuick |
+| **qtserialport** | QtSerialPort |
+| **qtserialbus** | QtSerialBus |
+| **qtsensors** | QtSensors, QtSensorsQuick |
+| **qtwebsockets** | QtWebSockets |
+| **qtwebchannel** | QtWebChannel |
+| **qtwebengine** | QtWebEngineCore, QtWebEngineWidgets, QtWebEngineQuick, QtPdf, QtPdfQuick, QtPdfWidgets, QtWebView, QtWebViewQuick |
+| **qtremoteobjects** | QtRemoteObjects, QtRemoteObjectsQml, QtRepParser |
+| **qtscxml** | QtScxml, QtScxmlQml, QtStateMachine, QtStateMachineQml |
+| **qtspeech** | QtTextToSpeech |
+| **qt3d** | Qt3DCore, Qt3DRender, Qt3DInput, Qt3DLogic, Qt3DAnimation, Qt3DExtras, Qt3DQuick, Qt3DQuickAnimation, Qt3DQuickExtras, Qt3DQuickInput, Qt3DQuickRender, Qt3DQuickScene2D |
+| **qtshadertools** | QtShaderTools |
+| **qtsvg** | QtSvg, QtSvgWidgets |
+| **qt5compat** | QtCore5Compat |
+
+## Qt 5.15.2 Module Mapping (Maya 2024/2023/2022)
+
+| Module | Provides Include Directories |
+|--------|------------------------------|
+| **qtbase** | QtCore, QtGui, QtWidgets, QtNetwork, QtSql, QtTest, QtConcurrent, QtOpenGL, QtOpenGLExtensions, QtPrintSupport, QtXml, QtDBus, QtPlatformHeaders, QtAccessibilitySupport, QtThemeSupport, QtFontDatabaseSupport, QtDeviceDiscoverySupport, QtEdidSupport, QtEventDispatcherSupport, QtFbSupport, QtPlatformCompositorSupport, QtWindowsUIAutomationSupport, QtWinExtras, QtZlib |
+| **qtsvg** | QtSvg |
+| **qtmultimedia** | QtMultimedia, QtMultimediaWidgets, QtMultimediaQuick |
+| **qttools** | QtDesigner, QtDesignerComponents, QtHelp, QtUiTools, QtUiPlugin |
+| **qtserialport** | QtSerialPort |
+| **qtserialbus** | QtSerialBus |
+| **qtsensors** | QtSensors |
+| **qtwebsockets** | QtWebSockets |
+| **qtwebchannel** | QtWebChannel |
+| **qtwebengine** | QtWebEngine, QtWebEngineCore, QtWebEngineWidgets, QtPdf, QtPdfWidgets |
+| **qtxmlpatterns** | QtXmlPatterns |
+| **qtnetworkauth** | (OAuth support) |
+| **qtremoteobjects** | QtRemoteObjects, QtRepParser |
+| **qtscxml** | QtScxml |
+| **qtspeech** | QtTextToSpeech |
+| **qtactiveqt** | ActiveQt (Windows only) |
+| **qt3d** | Qt3DCore, Qt3DRender, Qt3DInput, Qt3DLogic, Qt3DAnimation, Qt3DExtras, Qt3DQuick, Qt3DQuickAnimation, Qt3DQuickExtras, Qt3DQuickInput, Qt3DQuickRender, Qt3DQuickScene2D |
+| **qtgamepad** | QtGamepad |
+| **qtlocation** | QtLocation, QtPositioning, QtPositioningQuick |
+| **qtdeclarative** | QtQml, QtQmlModels, QtQmlWorkerScript, QtQuick, QtQuickWidgets, QtQuickTest, QtQuickParticles, QtQuickShapes, QtPacketProtocol, QtQmlDebug |
+| **qtquickcontrols2** | QtQuickControls2, QtQuickTemplates2 |
+| **qtwebview** | QtWebView |
+
+---
 
 ## Related Resources
 
