@@ -36,7 +36,7 @@ perl init-repository --module-subset=qtbase,qttools
 ::perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtxmlpatterns,qtnetworkauth,qtremoteobjects,qtscxml,qtspeech,qtactiveqt,qt3d,qtgamepad,qtlocation,qtdeclarative,qtquickcontrols2,qtwebview
 
 REM Step 4: Configure Qt 5.15.2 to match Maya's build
-configure.bat -prefix C:\Qt\5.15.2-maya -opensource -confirm-license -release -nomake examples -nomake tests
+call configure.bat -prefix C:\Qt\5.15.2-maya -opensource -confirm-license -release -nomake examples -nomake tests
 
 REM Step 5: Build Qt (this will take several hours)
 nmake
