@@ -33,7 +33,7 @@ REM Step 3: Initialize repositories with Maya 2020/2019 modules
 :: Basic
 perl init-repository --module-subset=qtbase,qttools
 :: Advanced
-::perl init-repository --module-subset=qtbase,qttools,qt3d,qtactiveqt,qtconnectivity,qtdeclarative,qtgamepad,qtlocation,qtmultimedia,qtremoteobjects,qtscxml,qtsensors,qtserialbus,qtserialport,qtspeech,qtsvg,qtwebchannel,qtwebengine,qtwebsockets,qtwebview,qtwinextras,qtxmlpatterns
+::perl init-repository --module-subset=qtbase,qttools,qt3d,qtactiveqt,qtcharts,qtconnectivity,qtdatavis3d,qtdeclarative,qtgamepad,qtlocation,qtmultimedia,qtnetworkauth,qtpurchasing,qtremoteobjects,qtscript,qtscxml,qtsensors,qtserialbus,qtserialport,qtspeech,qtsvg,qtvirtualkeyboard,qtwebchannel,qtwebengine,qtwebsockets,qtwebview,qtwinextras,qtxmlpatterns
 
 REM Step 4: Configure Qt 5.12.5 to match Maya's build
 call configure.bat -prefix C:\Qt\5.12.5-maya -opensource -confirm-license -release -nomake examples -nomake tests
