@@ -1,8 +1,5 @@
 # Maya Plugin Wizard for Visual Studio 2022/2019/2017
 
-Download the latest version of the extension from the Visual Studio Marketplace:
-[Maya Plugin Wizard](https://marketplace.visualstudio.com/items?itemName=GuyMicciche.MayaPluginWizard)
-
 A Visual Studio extension that provides project templates and wizards for creating Autodesk Maya C++ plugins. This extension streamlines the process of setting up Maya plugin development environments with proper project structure and dependencies.
 
 [![Maya Plugin Wizard](https://github.com/user-attachments/assets/2a0a8511-571b-41ea-9d8a-f9937188fcbe)]
