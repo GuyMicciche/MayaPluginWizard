@@ -29,7 +29,7 @@ if not exist "%USERPROFILE%\Desktop\Qt\qt5" (
 cd "%USERPROFILE%\Desktop\Qt\qt5"
 git checkout v5.12.5
 
-REM Step 3: Initialize repositories with Maya 2020/2019 modules
+REM Step 3: Initialize repositories with Maya 2020 modules
 :: Basic
 perl init-repository --module-subset=qtbase,qttools
 :: Advanced

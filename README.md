@@ -14,12 +14,12 @@ A Visual Studio extension that provides project templates and wizards for creati
 ## Maya Versions Supported
 <img width="64" height="64" alt="MayaIcon" src="https://github.com/user-attachments/assets/dce4f103-adb1-4c5e-b6a6-60c6f7ddd7cf" />
 
-**Maya 2027/2026/2025/2024/2023/2022/2020/2019**
+**Maya 2027/2026/2025/2024/2023/2022/2020**
 
 ## Prerequisites
-
+s
 - Visual Studio 2017 or later
-- Autodesk Maya 2019 or later
+- Autodesk Maya 2020 or later
 - Maya DevKit installed (for more control)
 - .NET Framework 4.7.2 or later
 - Python 3.9 or later (to run `unload_plugin.py` and `load_plugin.py` when you build)
@@ -135,7 +135,6 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    - Maya 2026/2025: Qt 6.5.3 (Qt comes in the [Maya API SDK's and tools](https://aps.autodesk.com/developer/overview/maya))
    - Maya 2024/2023/2022: Qt 5.15.2 (Qt in Maya directory)
    - Maya 2020: Qt 5.12.5 (Qt in Maya directory)
-   - Maya 2019: Qt 5.6.1 (Qt in Maya directory)
 2. If installing Qt manually, see [Installing Qt](#installing-qt)
 3. Install the [Qt Visual Studio Tools](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools2022) Visual Studio extension by going to **Extensions > Manage Extensions...**
 4. Go to **Extensions > Qt VS Tools > Qt Versions** and choose the `Location` where `qmake.exe` and `qtpaths.exe` are
@@ -152,7 +151,6 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    - Install Qt 6.5.3 for Maya 2025/2026.
    - Install Qt 5.15.2 for Maya 2024/2023/2022.
    - Install Qt 5.12.5 for Maya 2020.
-   - Qt 5.6.1 isn't available in the installer.
 4. Preferred location is C:\Qt
  <!-- <img src="https://github.com/user-attachments/assets/f6c910ea-9066-42b6-8911-5bff055d7b63" width="313" />
  <img src="https://github.com/user-attachments/assets/14437cae-6811-4671-8f0b-bfcce58af0f0" width="437" /> -->
@@ -180,9 +178,6 @@ It is recommended to have the basic Qt build on your machine if you want to use 
 
 ## Qt 5.12.5 build for Maya 2020 ([modules](#qt-5125-module-mapping-maya-2020))
 [build_qt_5_12_5_for_maya_2020.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5_12_5_for_maya_2020.bat)
-
-## Qt 5.6.1 build for Maya 2019 ([modules](#qt-561-module-mapping-maya-2019))
-[build_qt_5_6_1_for_maya_2019.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5_6_1_for_maya_2019.bat)
 
 ---
 
@@ -419,32 +414,6 @@ NOTE: **Qt Visual Studio Tools** will do all of the following by default if you 
 | **qtvirtualkeyboard** | QtVirtualKeyboard |
 | **qtwebchannel** | QtWebChannel |
 | **qtwebengine** | QtWebEngine, QtWebEngineCore, QtWebEngineWidgets |
-| **qtwebsockets** | QtWebSockets |
-| **qtwebview** | QtWebView |
-| **qtwinextras** | QtWinExtras |
-| **qtxmlpatterns** | QtXmlPatterns |
-
-## Qt 5.6.1 Module Mapping (Maya 2019)
-
-| Module | Provides Include Directories |
-|--------|------------------------------|
-| **qtbase** | QtCore, QtGui, QtWidgets, QtNetwork, QtSql, QtTest, QtConcurrent, QtOpenGL, QtOpenGLExtensions, QtPrintSupport, QtXml, QtDBus, QtZlib, QtPlatformHeaders, QtPlatformSupport |
-| **qttools** | QtDesigner, QtDesignerComponents, QtHelp, QtCLucene, QtUiPlugin, QtUiTools |
-| **qt3d** | Qt3DCore, Qt3DInput, Qt3DLogic, Qt3DQuick, Qt3DQuickInput, Qt3DQuickRender, Qt3DRender |
-| **qtactiveqt** | ActiveQt |
-| **qtconnectivity** | QtBluetooth, QtNfc |
-| **qtdeclarative** | QtQml, QtQmlDevTools, QtQuick, QtQuickParticles, QtQuickTest, QtQuickWidgets, QtLabsControls, QtLabsTemplates |
-| **qtenginio** | Enginio |
-| **qtlocation** | QtLocation, QtPositioning |
-| **qtmultimedia** | QtMultimedia, QtMultimediaWidgets, QtMultimediaQuick_p |
-| **qtscript** | QtScript, QtScriptTools |
-| **qtsensors** | QtSensors |
-| **qtserialbus** | QtSerialBus |
-| **qtserialport** | QtSerialPort |
-| **qtsvg** | QtSvg |
-| **qtwebchannel** | QtWebChannel |
-| **qtwebengine** | QtWebEngine, QtWebEngineCore, QtWebEngineWidgets |
-| **qtwebkit** | QtWebKit, QtWebKitWidgets |
 | **qtwebsockets** | QtWebSockets |
 | **qtwebview** | QtWebView |
 | **qtwinextras** | QtWinExtras |
