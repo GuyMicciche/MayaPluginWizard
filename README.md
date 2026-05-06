@@ -130,25 +130,29 @@ The generated projects include:
 ### Qt Integration (**Qt Visual Studio Tools** only) 
 
 These steps are only necessary if you plan on using the **Qt Visual Studio Tools** in Visual Studio:
-1. Note Qt version for your Maya version:
+1. Locate Qt version for your Maya version:
    - Maya 2027: Qt 6.8.3 (Qt comes in the [Maya API SDK's and tools](https://aps.autodesk.com/developer/overview/maya))
    - Maya 2026/2025: Qt 6.5.3 (Qt comes in the [Maya API SDK's and tools](https://aps.autodesk.com/developer/overview/maya))
    - Maya 2024/2023/2022: Qt 5.15.2 (Qt in Maya directory)
    - Maya 2020: Qt 5.12.5 (Qt in Maya directory)
    - Maya 2019: Qt 5.6.1 (Qt in Maya directory)
-2. Install the [Qt Visual Studio Tools](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools2022) Visual Studio extension by going to **Extensions > Manage Extensions...**
-3. Go to **Extensions > Qt VS Tools > Qt Versions** and choose the `Location` where `qmake.exe` and `qtpaths.exe` are
-   - For Maya 2025+ look in the `devkitBase/Qt/bin` folder, you might have to extract `Qt.zip` to your `devkitBase` directory
-   - For Maya 2024 and below, look in `C:\Program Files\Autodesk\Maya2024\bin` folder, should have both files there
-4. If using the devkit (Maya 2025+), download it from [The Maya Developer Center](https://aps.autodesk.com/developer/overview/maya) and extract somewhere on your disk.
-5. If installing Qt (Maya 2024 and lower), see [Installing Qt](#installing-qt)
-6. Right-click on your C++ project, click **Qt > Convert to Qt/MSBuild project**
-7. Now every time you compile your project Qt will handle all the Qt specific files automatically (ex: Resources.qrc, converting to moc files, etc.)
+2. If installing Qt manually, see [Installing Qt](#installing-qt)
+3. Install the [Qt Visual Studio Tools](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools2022) Visual Studio extension by going to **Extensions > Manage Extensions...**
+4. Go to **Extensions > Qt VS Tools > Qt Versions** and choose the `Location` where `qmake.exe` and `qtpaths.exe` are
+   - For Maya 2025+ look in the `devkitBase/Qt/bin` folder (you will need to extract `Qt.zip` to your `devkitBase` directory)
+   - For Maya 2024 and lower, look in `C:\Program Files\Autodesk\Maya2024\bin` folder, should have both files there
+5. Right-click on your C++ project, click **Qt > Convert to Qt/MSBuild project**
+6. Now every time you compile your project Qt will handle all the Qt specific files automatically (ex: Resources.qrc, converting to moc files, etc.)
 
 ## Installing Qt
 1. [Download Qt for open source use](https://www.qt.io/download-qt-installer-oss)
 2. You will need to create an account.
-3. In the installer when you reach **Customize**, click **Show > Archive** and dropdown to **Qt > Qt 5.15.2** and check **MSVC 2019 64-bit** (don't check the entire Qt folder. In addition, you should also check CMake, under **Qt > Build Tools > CMake** if you don't already have it. Feel free to install Qt 6.5.3 if you want to use this installer for Maya 2025+.
+3. In the installer when you reach **Customize**, click **Show > Archive** and dropdown to **Qt > Qt 5.15.2** and check **MSVC 2019 64-bit** (don't select the entire Qt folder). In addition, you should also check CMake, under **Qt > Build Tools > CMake** if you don't already have it.
+   - Install Qt 6.8.3 for Maya 2027.
+   - Install Qt 6.5.3 for Maya 2025/2026.
+   - Install Qt 5.15.2 for Maya 2024/2023/2022.
+   - Install Qt 5.12.5 for Maya 2020.
+   - Qt 5.6.1 isn't available in the installer.
 4. Preferred location is C:\Qt
  <!-- <img src="https://github.com/user-attachments/assets/f6c910ea-9066-42b6-8911-5bff055d7b63" width="313" />
  <img src="https://github.com/user-attachments/assets/14437cae-6811-4671-8f0b-bfcce58af0f0" width="437" /> -->
@@ -177,8 +181,8 @@ It is recommended to have the basic Qt build on your machine if you want to use 
 ## Qt 5.12.5 build for Maya 2020 ([modules](#qt-5125-module-mapping-maya-2020))
 [build_qt_5_12_5_for_maya_2020.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5_12_5_for_maya_2020.bat)
 
-## Qt 5.6.1 build for Maya 2019 ([modules](#qt-5125-module-mapping-maya-2019))
-[build_qt_5_12_5_for_maya_2019.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5_12_5_for_maya_2019.bat)
+## Qt 5.6.1 build for Maya 2019 ([modules](#qt-561-module-mapping-maya-2019))
+[build_qt_5_6_1_for_maya_2019.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5_6_1_for_maya_2019.bat)
 
 ---
 
