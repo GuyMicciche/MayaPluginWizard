@@ -170,7 +170,7 @@ It is recommended to have the basic Qt build on your machine if you want to use 
 [build_qt_6_8_3_for_maya_2027.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_6_8_3_for_maya_2027.bat)
 
 ## Qt 6.5.3 build for Maya 2026/2025 ([reference](#qt-653-module-mapping-maya-20262025))
-[build_qt_6_5_3_for_maya_2026_2025.bat(https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_6_5_3_for_maya_2026_2025.bat)
+[build_qt_6_5_3_for_maya_2026_2025.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_6_5_3_for_maya_2026_2025.bat)
 
 ## Qt 5.15.2 build for Maya 2024/2023/2022 ([reference](#qt-5152-module-mapping-maya-202420232022))
 [build_qt_5_15_2_for_maya_2024_2023_2022.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5.15.2_for_maya_2024_2023_2022.bat)
