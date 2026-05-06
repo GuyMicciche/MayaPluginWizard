@@ -422,7 +422,7 @@ NOTE: **Qt Visual Studio Tools** will do all of the following by default if you 
 ---
 
 ## Related Resources
-
+- [Automated Plugin Compiling](https://github.com/GuyMicciche/MayaDevKits)
 - [Maya Developer Help Center](https://help.autodesk.com/view/MAYADEV/2027/ENU/)
 - [Maya API Documentation](https://help.autodesk.com/view/MAYADEV/2027/ENU/?guid=MAYA_API_REF_cpp_ref_index_html)
 - [Visual Studio Extensibility Documentation](https://docs.microsoft.com/en-us/visualstudio/extensibility/)
