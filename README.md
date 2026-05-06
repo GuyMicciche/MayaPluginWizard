@@ -419,6 +419,32 @@ NOTE: **Qt Visual Studio Tools** will do all of the following by default if you 
 | **qtwinextras** | QtWinExtras |
 | **qtxmlpatterns** | QtXmlPatterns |
 
+## Qt 5.6.1 Module Mapping (Maya 2019)
+
+| Module | Provides Include Directories |
+|--------|------------------------------|
+| **qt3d** | Qt3DCore, Qt3DInput, Qt3DLogic, Qt3DQuick, Qt3DQuickInput, Qt3DQuickRender, Qt3DRender |
+| **qtactiveqt** | ActiveQt |
+| **qtbase** | QtCore, QtGui, QtWidgets, QtNetwork, QtSql, QtTest, QtConcurrent, QtOpenGL, QtOpenGLExtensions, QtPrintSupport, QtXml, QtDBus, QtZlib, QtPlatformHeaders, QtPlatformSupport |
+| **qtconnectivity** | QtBluetooth, QtNfc |
+| **qtdeclarative** | QtQml, QtQmlDevTools, QtQuick, QtQuickParticles, QtQuickTest, QtQuickWidgets, QtLabsControls, QtLabsTemplates |
+| **qtenginio** | Enginio |
+| **qtlocation** | QtLocation, QtPositioning |
+| **qtmultimedia** | QtMultimedia, QtMultimediaWidgets, QtMultimediaQuick_p |
+| **qtscript** | QtScript, QtScriptTools |
+| **qtsensors** | QtSensors |
+| **qtserialbus** | QtSerialBus |
+| **qtserialport** | QtSerialPort |
+| **qtsvg** | QtSvg |
+| **qttools** | QtDesigner, QtDesignerComponents, QtHelp, QtCLucene, QtUiPlugin, QtUiTools |
+| **qtwebchannel** | QtWebChannel |
+| **qtwebengine** | QtWebEngine, QtWebEngineCore, QtWebEngineWidgets |
+| **qtwebkit** | QtWebKit, QtWebKitWidgets |
+| **qtwebsockets** | QtWebSockets |
+| **qtwebview** | QtWebView |
+| **qtwinextras** | QtWinExtras |
+| **qtxmlpatterns** | QtXmlPatterns |
+
 ---
 
 ## Related Resources
