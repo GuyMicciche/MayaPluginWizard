@@ -166,16 +166,16 @@ It is recommended to have the basic Qt build on your machine if you want to use 
    + [Bison](https://sourceforge.net/projects/gnuwin32/files/bison/2.4.1/bison-2.4.1-bin.zip/download?use_mirror=gigenet), add `.exe` to PATH
    + [Flex](https://sourceforge.net/projects/gnuwin32/files/flex/2.5.4a-1/flex-2.5.4a-1-bin.zip/download?use_mirror=pilotfiber&download), add `.exe` to PATH
 
-## [Qt 6.8.3 build for Maya 2027)](#qt-683-module-mapping-maya-2027)
+## Qt 6.8.3 build for Maya 2027 [(module mapping reference)](#qt-683-module-mapping-maya-2027)
 [build_qt_6_8_3_for_maya_2027.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_6_8_3_for_maya_2027.bat)
 
-## [Qt 6.5.3 build for Maya 2026/2025](#qt-653-module-mapping-maya-20262025)
-[build_qt_6_5_3_for_maya_2026_2025.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_6_5_3_for_maya_2026_2025.bat)
+## Qt 6.5.3 build for Maya 2026/2025 [(module mapping reference)](#qt-653-module-mapping-maya-20262025)
+[build_qt_6_5_3_for_maya_2026_2025.bat(https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_6_5_3_for_maya_2026_2025.bat)
 
-## [Qt 5.15.2 build for Maya 2024/2023/2022](#qt-5152-module-mapping-maya-202420232022)
+## Qt 5.15.2 build for Maya 2024/2023/2022 [(module mapping reference)](#qt-5152-module-mapping-maya-202420232022)
 [build_qt_5_15_2_for_maya_2024_2023_2022.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5.15.2_for_maya_2024_2023_2022.bat)
 
-## [Qt 5.12.5 build for Maya 2020/2019](#qt-5125-module-mapping-maya-20202019)
+## Qt 5.12.5 build for Maya 2020/2019 [(module mapping reference)](#qt-5125-module-mapping-maya-20202019)
 [build_qt_5_12_5_for_maya_2020_2019.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5_12_5_for_maya_2020_2019.bat)
 
 ---
