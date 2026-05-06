@@ -14,7 +14,7 @@ A Visual Studio extension that provides project templates and wizards for creati
 ## Maya Versions Supported
 <img width="64" height="64" alt="MayaIcon" src="https://github.com/user-attachments/assets/dce4f103-adb1-4c5e-b6a6-60c6f7ddd7cf" />
 
-**Maya 2026/2025/2024/2023/2022/2020/2019**
+**Maya 2027/2026/2025/2024/2023/2022/2020/2019**
 
 ## Prerequisites
 
@@ -107,7 +107,7 @@ cmds.commandPort(name=":20201", sourceType="python")
 5. Build the project (Ctrl+B) to create a `.mll` file
    - If you have Maya open, `unload_plugin.py` and `load_plugin.py` should create a new file, unload the plugin, and the reload it
    - Modify `unload_plugin.py` if you don't want to create a new file
-6. The `.mll` file should get copied to `MAYA_PLUG_IN_PATH` if you set it up correctly. Otherwise, manually copy the `.mll` file to `%USERPROFILE%\Documents\maya\2025\plug-ins` folder
+6. The `.mll` file should get copied to `MAYA_PLUG_IN_PATH` if you set it up correctly. Otherwise, manually copy the `.mll` file to `%USERPROFILE%\Documents\maya\2027\plug-ins` folder
 7. Load the plugin in Maya using the Plug-in Manager
 8. Test your plugin functionality
 
@@ -131,10 +131,11 @@ The generated projects include:
 
 These steps are only necessary if you plan on using the **Qt Visual Studio Tools** in Visual Studio:
 1. Note Qt version for your Maya version:
+   - Maya 2027: Qt 6.8.3 (Qt comes in the [Maya API SDK's and tools](https://aps.autodesk.com/developer/overview/maya))
    - Maya 2026/2025: Qt 6.5.3 (Qt comes in the [Maya API SDK's and tools](https://aps.autodesk.com/developer/overview/maya))
    - Maya 2024/2023/2022: Qt 5.15.2 (Qt in Maya directory)
    - Maya 2020/2019: Qt 5.12.5 (Qt in Maya directory)
-2. Install the **Qt Visual Studio Tools** Visual Studio extension by going to **Extensions > Manage Extensions...**
+2. Install the [**Qt Visual Studio Tools](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools2022) Visual Studio extension by going to **Extensions > Manage Extensions...**
 3. Go to **Extensions > Qt VS Tools > Qt Versions** and choose the `Location` where `qmake.exe` and `qtpaths.exe` are
    - For Maya 2025+ look in the `devkitBase/Qt/bin` folder, you might have to extract `Qt.zip` to your `devkitBase` directory
    - For Maya 2024 and below, look in `C:\Program Files\Autodesk\Maya2024\bin` folder, should have both files there
@@ -163,11 +164,14 @@ It is recommended to have the basic Qt build on your machine if you want to use 
    + [Bison](https://sourceforge.net/projects/gnuwin32/files/bison/2.4.1/bison-2.4.1-bin.zip/download?use_mirror=gigenet), add `.exe` to PATH
    + [Flex](https://sourceforge.net/projects/gnuwin32/files/flex/2.5.4a-1/flex-2.5.4a-1-bin.zip/download?use_mirror=pilotfiber&download), add `.exe` to PATH
 
+## Qt 6.8.3 build for Maya 2027
+[build_qt_6_8_3_for_maya_2027.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_6_8_3_for_maya_2027.bat)
+
 ## Qt 6.5.3 build for Maya 2026/2025
 [build_qt_6_5_3_for_maya_2026_2025.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_6_5_3_for_maya_2026_2025.bat)
 
 ## Qt 5.15.2 build for Maya 2024/2023/2022
-[build_qt_5.15.2_for_maya_2024_2023_2022.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5.15.2_for_maya_2024_2023_2022.bat)
+[build_qt_5_15_2_for_maya_2024_2023_2022.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5.15.2_for_maya_2024_2023_2022.bat)
 
 ## Qt 5.12.5 build for Maya 2020/2019
 [build_qt_5_12_5_for_maya_2020_2019.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5_12_5_for_maya_2020_2019.bat)
@@ -304,55 +308,80 @@ NOTE: **Qt Visual Studio Tools** will do all of the following by default if you 
 
 ---
 
-## Qt 6.5.3 Module Mapping (Maya 2026/2025)
-
+## Qt 6.8.3 Module Mapping (Maya 2027+)
+ 
 | Module | Provides Include Directories |
 |--------|------------------------------|
-| **qtbase** | QtCore, QtGui, QtWidgets, QtNetwork, QtSql, QtTest, QtConcurrent, QtOpenGL, QtOpenGLWidgets, QtPrintSupport, QtXml, QtDBus, QtDeviceDiscoverySupport, QtFbSupport, QtFreetype, QtHarfbuzz, QtJpeg, QtPng, QtZlib |
-| **qtdeclarative** | QtQml, QtQmlCore, QtQmlModels, QtQmlWorkerScript, QtQmlLocalStorage, QtQmlXmlListModel, QtQmlIntegration, QtQmlCompiler, QtQmlTypeRegistrar, QtQmlDom, QtQmlDebug, QtQuick, QtQuickWidgets, QtQuickTest, QtQuickControls2, QtQuickControls2Impl, QtQuickTemplates2, QtQuickLayouts, QtQuickParticles, QtQuickShapes, QtQuickEffects, QtQuickDialogs2, QtQuickDialogs2QuickImpl, QtQuickDialogs2Utils, QtQuickTestUtils, QtQuickControlsTestUtils, QtPacketProtocol, QtLabsAnimation, QtLabsFolderListModel, QtLabsQmlModels, QtLabsSettings, QtLabsSharedImage, QtLabsWavefrontMesh, QtExampleIcons |
-| **qtmultimedia** | QtMultimedia, QtMultimediaWidgets, QtMultimediaQuick, QtSpatialAudio |
-| **qttools** | QtDesigner, QtDesignerComponents, QtHelp, QtUiTools, QtUiPlugin, QtTools |
+| **qtbase** | QtConcurrent, QtCore, QtDBus, QtDeviceDiscoverySupportPrivate, QtEntryPointPrivate, QtExampleIconsPrivate, QtExamplesAssetDownloaderPrivate, QtFbSupportPrivate, QtFreetypePrivate, QtGui, QtHarfbuzzPrivate, QtJpegPrivate, QtNetwork, QtOpenGL, QtOpenGLWidgets, QtPngPrivate, QtPrintSupport, QtSql, QtTest, QtTestInternalsPrivate, QtWidgets, QtXml, QtZlibPrivate |
+| **qttools** | QtDesigner, QtDesignerComponentsPrivate, QtHelp, QtLinguist, QtQDocCatchConversionsPrivate, QtQDocCatchGeneratorsPrivate, QtQDocCatchPrivate, QtTools, QtUiPlugin, QtUiTools |
+| **qt3d** | Qt3DAnimation, Qt3DCore, Qt3DExtras, Qt3DInput, Qt3DLogic, Qt3DQuick, Qt3DQuickAnimation, Qt3DQuickExtras, Qt3DQuickInput, Qt3DQuickRender, Qt3DQuickScene2D, Qt3DQuickScene3D, Qt3DRender |
+| **qt5compat** | QtCore5Compat |
+| **qtdeclarative** | QtLabsAnimation, QtLabsFolderListModel, QtLabsPlatform, QtLabsQmlModels, QtLabsSettings, QtLabsSharedImage, QtLabsWavefrontMesh, QtPacketProtocolPrivate, QtQml, QtQmlAssetDownloader, QtQmlCompiler, QtQmlCore, QtQmlDebugPrivate, QtQmlDomPrivate, QtQmlIntegration, QtQmlLocalStorage, QtQmlMeta, QtQmlModels, QtQmlNetwork, QtQmlToolingSettingsPrivate, QtQmlTypeRegistrarPrivate, QtQmlWorkerScript, QtQmlXmlListModel, QtQuick, QtQuickControls2, QtQuickControls2Basic, QtQuickControls2BasicStyleImpl, QtQuickControls2FluentWinUI3StyleImpl, QtQuickControls2Fusion, QtQuickControls2FusionStyleImpl, QtQuickControls2Imagine, QtQuickControls2ImagineStyleImpl, QtQuickControls2Impl, QtQuickControls2Material, QtQuickControls2MaterialStyleImpl, QtQuickControls2Universal, QtQuickControls2UniversalStyleImpl, QtQuickControls2WindowsStyleImpl, QtQuickControlsTestUtilsPrivate, QtQuickDialogs2, QtQuickDialogs2QuickImpl, QtQuickDialogs2Utils, QtQuickEffectsPrivate, QtQuickLayouts, QtQuickParticlesPrivate, QtQuickShapesPrivate, QtQuickTemplates2, QtQuickTest, QtQuickTestUtilsPrivate, QtQuickVectorImage, QtQuickVectorImageGeneratorPrivate, QtQuickWidgets |
+| **qtmultimedia** | QtMultimedia, QtMultimediaQuickPrivate, QtMultimediaTestLibPrivate, QtMultimediaWidgets, QtSpatialAudio |
 | **qtpositioning** | QtPositioning, QtPositioningQuick |
-| **qtserialport** | QtSerialPort |
-| **qtserialbus** | QtSerialBus |
-| **qtsensors** | QtSensors, QtSensorsQuick |
-| **qtwebsockets** | QtWebSockets |
-| **qtwebchannel** | QtWebChannel |
-| **qtwebengine** | QtWebEngineCore, QtWebEngineWidgets, QtWebEngineQuick, QtPdf, QtPdfQuick, QtPdfWidgets, QtWebView, QtWebViewQuick |
 | **qtremoteobjects** | QtRemoteObjects, QtRemoteObjectsQml, QtRepParser |
 | **qtscxml** | QtScxml, QtScxmlQml, QtStateMachine, QtStateMachineQml |
-| **qtspeech** | QtTextToSpeech |
-| **qt3d** | Qt3DCore, Qt3DRender, Qt3DInput, Qt3DLogic, Qt3DAnimation, Qt3DExtras, Qt3DQuick, Qt3DQuickAnimation, Qt3DQuickExtras, Qt3DQuickInput, Qt3DQuickRender, Qt3DQuickScene2D |
+| **qtsensors** | QtSensors, QtSensorsQuick |
+| **qtserialbus** | QtSerialBus |
+| **qtserialport** | QtSerialPort |
 | **qtshadertools** | QtShaderTools |
+| **qtspeech** | QtTextToSpeech |
 | **qtsvg** | QtSvg, QtSvgWidgets |
+| **qtwebchannel** | QtWebChannel, QtWebChannelQuick |
+| **qtwebengine** | QtWebEngineCore, QtWebEngineQuick, QtWebEngineQuickDelegatesQml, QtWebEngineWidgets |
+| **qtwebsockets** | QtWebSockets |
+| **qtwebview** | QtWebView, QtWebViewQuick |
+
+## Qt 6.5.3 Module Mapping (Maya 2026/2025)
+ 
+| Module | Provides Include Directories |
+|--------|------------------------------|
+| **qtbase** | QtConcurrent, QtCore, QtDBus, QtDeviceDiscoverySupportPrivate, QtEntryPointPrivate, QtExampleIconsPrivate, QtFbSupportPrivate, QtFreetypePrivate, QtGui, QtHarfbuzzPrivate, QtJpegPrivate, QtNetwork, QtOpenGL, QtOpenGLWidgets, QtPngPrivate, QtPrintSupport, QtSql, QtTest, QtWidgets, QtXml, QtZlibPrivate |
+| **qttools** | QtDesigner, QtDesignerComponentsPrivate, QtHelp, QtLinguist, QtTools, QtUiPlugin, QtUiTools |
+| **qt3d** | Qt3DAnimation, Qt3DCore, Qt3DExtras, Qt3DInput, Qt3DLogic, Qt3DQuick, Qt3DQuickAnimation, Qt3DQuickExtras, Qt3DQuickInput, Qt3DQuickRender, Qt3DQuickScene2D, Qt3DRender |
 | **qt5compat** | QtCore5Compat |
+| **qtdeclarative** | QtLabsAnimation, QtLabsFolderListModel, QtLabsQmlModels, QtLabsSettings, QtLabsSharedImage, QtLabsWavefrontMesh, QtPacketProtocolPrivate, QtQml, QtQmlCompilerPrivate, QtQmlCore, QtQmlDebugPrivate, QtQmlDomPrivate, QtQmlIntegration, QtQmlLocalStorage, QtQmlModels, QtQmlTypeRegistrarPrivate, QtQmlWorkerScript, QtQmlXmlListModel, QtQuick, QtQuickControls2, QtQuickControls2Impl, QtQuickControlsTestUtilsPrivate, QtQuickDialogs2, QtQuickDialogs2QuickImpl, QtQuickDialogs2Utils, QtQuickEffectsPrivate, QtQuickLayouts, QtQuickParticlesPrivate, QtQuickShapesPrivate, QtQuickTemplates2, QtQuickTest, QtQuickTestUtilsPrivate, QtQuickWidgets |
+| **qtmultimedia** | QtMultimedia, QtMultimediaQuickPrivate, QtMultimediaWidgets, QtSpatialAudio |
+| **qtpositioning** | QtPositioning, QtPositioningQuick |
+| **qtremoteobjects** | QtRemoteObjects, QtRemoteObjectsQml, QtRepParser |
+| **qtscxml** | QtScxml, QtScxmlQml, QtStateMachine, QtStateMachineQml |
+| **qtsensors** | QtSensors, QtSensorsQuick |
+| **qtserialbus** | QtSerialBus |
+| **qtserialport** | QtSerialPort |
+| **qtshadertools** | QtShaderTools |
+| **qtspeech** | QtTextToSpeech |
+| **qtsvg** | QtSvg, QtSvgWidgets |
+| **qtwebchannel** | QtWebChannel |
+| **qtwebengine** | QtPdf, QtPdfQuick, QtPdfWidgets, QtWebEngineCore, QtWebEngineQuick, QtWebEngineQuickDelegatesQml, QtWebEngineWidgets |
+| **qtwebsockets** | QtWebSockets |
+| **qtwebview** | QtWebView, QtWebViewQuick |
 
 ## Qt 5.15.2 Module Mapping (Maya 2024/2023/2022)
 
 | Module | Provides Include Directories |
 |--------|------------------------------|
-| **qtbase** | QtCore, QtGui, QtWidgets, QtNetwork, QtSql, QtTest, QtConcurrent, QtOpenGL, QtOpenGLExtensions, QtPrintSupport, QtXml, QtDBus, QtPlatformHeaders, QtAccessibilitySupport, QtThemeSupport, QtFontDatabaseSupport, QtDeviceDiscoverySupport, QtEdidSupport, QtEventDispatcherSupport, QtFbSupport, QtPlatformCompositorSupport, QtWindowsUIAutomationSupport, QtWinExtras, QtZlib |
-| **qtsvg** | QtSvg |
-| **qtmultimedia** | QtMultimedia, QtMultimediaWidgets, QtMultimediaQuick |
-| **qttools** | QtDesigner, QtDesignerComponents, QtHelp, QtUiTools, QtUiPlugin |
-| **qtserialport** | QtSerialPort |
-| **qtserialbus** | QtSerialBus |
-| **qtsensors** | QtSensors |
-| **qtwebsockets** | QtWebSockets |
-| **qtwebchannel** | QtWebChannel |
-| **qtwebengine** | QtWebEngine, QtWebEngineCore, QtWebEngineWidgets, QtPdf, QtPdfWidgets |
-| **qtxmlpatterns** | QtXmlPatterns |
-| **qtnetworkauth** | (OAuth support) |
-| **qtremoteobjects** | QtRemoteObjects, QtRepParser |
-| **qtscxml** | QtScxml |
-| **qtspeech** | QtTextToSpeech |
-| **qtactiveqt** | ActiveQt (Windows only) |
-| **qt3d** | Qt3DCore, Qt3DRender, Qt3DInput, Qt3DLogic, Qt3DAnimation, Qt3DExtras, Qt3DQuick, Qt3DQuickAnimation, Qt3DQuickExtras, Qt3DQuickInput, Qt3DQuickRender, Qt3DQuickScene2D |
+| **qtbase** | QtCore, QtGui, QtWidgets, QtNetwork, QtSql, QtTest, QtConcurrent, QtOpenGL, QtOpenGLExtensions, QtPrintSupport, QtXml, QtDBus, QtZlib, QtPlatformHeaders, QtAccessibilitySupport, QtDeviceDiscoverySupport, QtEdidSupport, QtEventDispatcherSupport, QtFbSupport, QtFontDatabaseSupport, QtPlatformCompositorSupport, QtThemeSupport, QtWindowsUIAutomationSupport |
+| **qttools** | QtDesigner, QtDesignerComponents, QtHelp, QtUiPlugin, QtUiTools |
+| **qt3d** | Qt3DAnimation, Qt3DCore, Qt3DExtras, Qt3DInput, Qt3DLogic, Qt3DQuick, Qt3DQuickAnimation, Qt3DQuickExtras, Qt3DQuickInput, Qt3DQuickRender, Qt3DQuickScene2D, Qt3DRender |
+| **qtactiveqt** | ActiveQt |
+| **qtconnectivity** | QtBluetooth, QtNfc |
+| **qtdeclarative** | QtQml, QtQmlDebug, QtQmlModels, QtQmlWorkerScript, QtQuick, QtQuickControls2, QtQuickParticles, QtQuickShapes, QtQuickTemplates2, QtQuickTest, QtQuickWidgets, QtPacketProtocol |
 | **qtgamepad** | QtGamepad |
 | **qtlocation** | QtLocation, QtPositioning, QtPositioningQuick |
-| **qtdeclarative** | QtQml, QtQmlModels, QtQmlWorkerScript, QtQuick, QtQuickWidgets, QtQuickTest, QtQuickParticles, QtQuickShapes, QtPacketProtocol, QtQmlDebug |
-| **qtquickcontrols2** | QtQuickControls2, QtQuickTemplates2 |
+| **qtmultimedia** | QtMultimedia, QtMultimediaWidgets, QtMultimediaQuick |
+| **qtremoteobjects** | QtRemoteObjects, QtRepParser |
+| **qtscxml** | QtScxml |
+| **qtsensors** | QtSensors |
+| **qtserialbus** | QtSerialBus |
+| **qtserialport** | QtSerialPort |
+| **qtspeech** | QtTextToSpeech |
+| **qtsvg** | QtSvg |
+| **qtwebchannel** | QtWebChannel |
+| **qtwebengine** | QtWebEngine, QtWebEngineCore, QtWebEngineWidgets, QtPdf, QtPdfWidgets |
+| **qtwebsockets** | QtWebSockets |
 | **qtwebview** | QtWebView |
+| **qtwinextras** | QtWinExtras |
+| **qtxmlpatterns** | QtXmlPatterns |
 
 ---
 

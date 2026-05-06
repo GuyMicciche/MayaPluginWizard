@@ -33,7 +33,7 @@ REM Step 3: Initialize repositories with Maya 2024/2023/2022 modules
 :: Basic
 perl init-repository --module-subset=qtbase,qttools
 :: Advanced
-::perl init-repository --module-subset=qtbase,qtsvg,qtmultimedia,qttools,qtserialport,qtserialbus,qtsensors,qtwebsockets,qtwebchannel,qtwebengine,qtxmlpatterns,qtnetworkauth,qtremoteobjects,qtscxml,qtspeech,qtactiveqt,qt3d,qtgamepad,qtlocation,qtdeclarative,qtquickcontrols2,qtwebview
+::perl init-repository --module-subset=qtbase,qttools,qt3d,qtactiveqt,qtconnectivity,qtdeclarative,qtgamepad,qtlocation,qtmultimedia,qtremoteobjects,qtscxml,qtsensors,qtserialbus,qtserialport,qtspeech,qtsvg,qtwebchannel,qtwebengine,qtwebsockets,qtwebview,qtwinextras,qtxmlpatterns
 
 REM Step 4: Configure Qt 5.15.2 to match Maya's build
 call configure.bat -prefix C:\Qt\5.15.2-maya -opensource -confirm-license -release -nomake examples -nomake tests
