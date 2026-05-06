@@ -1,10 +1,11 @@
 # Maya Plugin Wizard for Visual Studio 2022/2019/2017
 
-https://marketplace.visualstudio.com/items?itemName=GuyMicciche.MayaPluginWizard
+Download the latest version of the extension from the Visual Studio Marketplace:
+[Maya Plugin Wizard](https://marketplace.visualstudio.com/items?itemName=GuyMicciche.MayaPluginWizard)
 
 A Visual Studio extension that provides project templates and wizards for creating Autodesk Maya C++ plugins. This extension streamlines the process of setting up Maya plugin development environments with proper project structure and dependencies.
 
-[![Maya Plugin Wizard](https://github.com/user-attachments/assets/2a0a8511-571b-41ea-9d8a-f9937188fcbe)](#---)
+[![Maya Plugin Wizard](https://github.com/user-attachments/assets/2a0a8511-571b-41ea-9d8a-f9937188fcbe)]
 
 ## Features
 
@@ -28,7 +29,7 @@ A Visual Studio extension that provides project templates and wizards for creati
 
 ## Installation
 
-1. Download the latest VSIX package from the [Releases](../../releases) page
+1. Download the latest VSIX package from the [Releases](../../releases) page or from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=GuyMicciche.MayaPluginWizard)
 2. Double-click the `.vsix` file to install the extension
 3. Restart Visual Studio
 4. The Maya plugin templates will appear under Visual C++ templates
@@ -96,7 +97,7 @@ Once you've created a project using this wizard, you can:
    - MAYA_PLUG_IN_PATH
    <img width="924" height="415" alt="image" src="https://github.com/user-attachments/assets/e87ef459-f53c-494e-bdb7-d3b8b6bc0ca1" />
 
-2. Create or modify `userSetup.py` to include (or run this [maya_commandport_setup.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/maya_commandport_setup.bat):
+2. Create or modify `userSetup.py` to include, or run this [maya_commandport_setup.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/maya_commandport_setup.bat):
 ```python
 # userSetup.py
 import maya.cmds as cmds
@@ -422,8 +423,8 @@ NOTE: **Qt Visual Studio Tools** will do all of the following by default if you 
 
 ## Related Resources
 
-- [Maya Developer Help Center](https://help.autodesk.com/view/MAYADEV/2026/ENU/)
-- [Maya API Documentation](https://help.autodesk.com/view/MAYADEV/2026/ENU/?guid=MAYA_API_REF_cpp_ref_index_html)
+- [Maya Developer Help Center](https://help.autodesk.com/view/MAYADEV/2027/ENU/)
+- [Maya API Documentation](https://help.autodesk.com/view/MAYADEV/2027/ENU/?guid=MAYA_API_REF_cpp_ref_index_html)
 - [Visual Studio Extensibility Documentation](https://docs.microsoft.com/en-us/visualstudio/extensibility/)
 - [VSIX extension schema 2.0 reference](https://learn.microsoft.com/en-us/visualstudio/extensibility/vsix-extension-schema-2-0-reference?view=vs-2022)
 - [Building Qt 6 from Git](https://wiki.qt.io/Building_Qt_6_from_Git)
