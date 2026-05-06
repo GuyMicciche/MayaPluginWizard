@@ -134,7 +134,8 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    - Maya 2027: Qt 6.8.3 (Qt comes in the [Maya API SDK's and tools](https://aps.autodesk.com/developer/overview/maya))
    - Maya 2026/2025: Qt 6.5.3 (Qt comes in the [Maya API SDK's and tools](https://aps.autodesk.com/developer/overview/maya))
    - Maya 2024/2023/2022: Qt 5.15.2 (Qt in Maya directory)
-   - Maya 2020/2019: Qt 5.12.5 (Qt in Maya directory)
+   - Maya 2020: Qt 5.12.5 (Qt in Maya directory)
+   - Maya 2019: Qt 5.6.1 (Qt in Maya directory)
 2. Install the [Qt Visual Studio Tools](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools2022) Visual Studio extension by going to **Extensions > Manage Extensions...**
 3. Go to **Extensions > Qt VS Tools > Qt Versions** and choose the `Location` where `qmake.exe` and `qtpaths.exe` are
    - For Maya 2025+ look in the `devkitBase/Qt/bin` folder, you might have to extract `Qt.zip` to your `devkitBase` directory
@@ -173,8 +174,11 @@ It is recommended to have the basic Qt build on your machine if you want to use 
 ## Qt 5.15.2 build for Maya 2024/2023/2022 ([modules](#qt-5152-module-mapping-maya-202420232022))
 [build_qt_5_15_2_for_maya_2024_2023_2022.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5.15.2_for_maya_2024_2023_2022.bat)
 
-## Qt 5.12.5 build for Maya 2020/2019 ([modules](#qt-5125-module-mapping-maya-20202019))
-[build_qt_5_12_5_for_maya_2020_2019.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5_12_5_for_maya_2020_2019.bat)
+## Qt 5.12.5 build for Maya 2020 ([modules](#qt-5125-module-mapping-maya-2020))
+[build_qt_5_12_5_for_maya_2020.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5_12_5_for_maya_2020.bat)
+
+## Qt 5.6.1 build for Maya 2019 ([modules](#qt-5125-module-mapping-maya-2019))
+[build_qt_5_12_5_for_maya_2019.bat](https://github.com/GuyMicciche/MayaPluginWizard/blob/master/build_qt_5_12_5_for_maya_2019.bat)
 
 ---
 
@@ -383,7 +387,7 @@ NOTE: **Qt Visual Studio Tools** will do all of the following by default if you 
 | **qtwinextras** | QtWinExtras |
 | **qtxmlpatterns** | QtXmlPatterns |
 
-## Qt 5.12.5 Module Mapping (Maya 2020/2019)
+## Qt 5.12.5 Module Mapping (Maya 2020)
 
 | Module | Provides Include Directories |
 |--------|------------------------------|
@@ -411,6 +415,32 @@ NOTE: **Qt Visual Studio Tools** will do all of the following by default if you 
 | **qtvirtualkeyboard** | QtVirtualKeyboard |
 | **qtwebchannel** | QtWebChannel |
 | **qtwebengine** | QtWebEngine, QtWebEngineCore, QtWebEngineWidgets |
+| **qtwebsockets** | QtWebSockets |
+| **qtwebview** | QtWebView |
+| **qtwinextras** | QtWinExtras |
+| **qtxmlpatterns** | QtXmlPatterns |
+
+## Qt 5.6.1 Module Mapping (Maya 2019)
+
+| Module | Provides Include Directories |
+|--------|------------------------------|
+| **qtbase** | QtCore, QtGui, QtWidgets, QtNetwork, QtSql, QtTest, QtConcurrent, QtOpenGL, QtOpenGLExtensions, QtPrintSupport, QtXml, QtDBus, QtZlib, QtPlatformHeaders, QtPlatformSupport |
+| **qttools** | QtDesigner, QtDesignerComponents, QtHelp, QtCLucene, QtUiPlugin, QtUiTools |
+| **qt3d** | Qt3DCore, Qt3DInput, Qt3DLogic, Qt3DQuick, Qt3DQuickInput, Qt3DQuickRender, Qt3DRender |
+| **qtactiveqt** | ActiveQt |
+| **qtconnectivity** | QtBluetooth, QtNfc |
+| **qtdeclarative** | QtQml, QtQmlDevTools, QtQuick, QtQuickParticles, QtQuickTest, QtQuickWidgets, QtLabsControls, QtLabsTemplates |
+| **qtenginio** | Enginio |
+| **qtlocation** | QtLocation, QtPositioning |
+| **qtmultimedia** | QtMultimedia, QtMultimediaWidgets, QtMultimediaQuick_p |
+| **qtscript** | QtScript, QtScriptTools |
+| **qtsensors** | QtSensors |
+| **qtserialbus** | QtSerialBus |
+| **qtserialport** | QtSerialPort |
+| **qtsvg** | QtSvg |
+| **qtwebchannel** | QtWebChannel |
+| **qtwebengine** | QtWebEngine, QtWebEngineCore, QtWebEngineWidgets |
+| **qtwebkit** | QtWebKit, QtWebKitWidgets |
 | **qtwebsockets** | QtWebSockets |
 | **qtwebview** | QtWebView |
 | **qtwinextras** | QtWinExtras |

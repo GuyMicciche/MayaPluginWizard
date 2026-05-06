@@ -1,5 +1,5 @@
 REM ========================================
-REM Build Qt 5.12.5 for Maya 2024
+REM Build Qt 5.12.5 for Maya 2020
 REM ========================================
 REM Prerequisites:
 REM - Visual Studio 2019 or 2022 (MSVC)
