@@ -137,7 +137,7 @@ These steps are only necessary if you plan on using the **Qt Visual Studio Tools
    - Maya 2026/2025: Qt 6.5.3 (Qt comes in the [Maya API SDK's and tools](https://aps.autodesk.com/developer/overview/maya))
    - Maya 2024/2023/2022: Qt 5.15.2 (Qt in Maya directory)
    - Maya 2020/2019: Qt 5.12.5 (Qt in Maya directory)
-2. Install the [**Qt Visual Studio Tools](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools2022) Visual Studio extension by going to **Extensions > Manage Extensions...**
+2. Install the [Qt Visual Studio Tools](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools2022) Visual Studio extension by going to **Extensions > Manage Extensions...**
 3. Go to **Extensions > Qt VS Tools > Qt Versions** and choose the `Location` where `qmake.exe` and `qtpaths.exe` are
    - For Maya 2025+ look in the `devkitBase/Qt/bin` folder, you might have to extract `Qt.zip` to your `devkitBase` directory
    - For Maya 2024 and below, look in `C:\Program Files\Autodesk\Maya2024\bin` folder, should have both files there
